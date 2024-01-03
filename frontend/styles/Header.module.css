@@ -1,0 +1,104 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    background-color: rgb(65, 29, 124);
+    background-image: url("../public/headerBackground.jpg");
+    background-position: center;
+    color: whitesmoke;
+}
+
+.name {
+    font-size: 50px;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.title {
+    font-size: 30px;
+    padding: 4px;
+    margin: 0;
+}
+
+.subTitle {
+    padding: 4px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: whitesmoke;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 50px;
+}
+
+.userPicture {
+    border-radius: 50%;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contact {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    color: #36393b;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.contactItem {
+    display: flex;
+    padding: 0 10px;
+    margin: 10px;
+    font-size: 20px;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #36393b;
+    cursor: pointer;
+}
+
+.contactLogo {
+    width: auto;
+    margin-left: 20px;
+}
+
+.downloadBtn {
+    background-color: #f2aa4c;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: "EB Garamond";
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    justify-self: end;
+    font-size: 22px;
+    border-top: 1px solid whitesmoke;
+}
+
+.navItem {
+    background-color: rgba(31, 10, 63, 0.3);
+    padding: 8px 30px;
+    border-radius: 4px;
+    font-size: 22px;
+}

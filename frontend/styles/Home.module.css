@@ -1,0 +1,30 @@
+#main {
+    flex-direction: column;
+    min-height: 700px;
+    justify-content: center;
+}
+
+#introBox, #skillsBox {
+    padding: 50px 100px;
+    margin: 50px 150px;
+    display: flex; 
+}
+
+#introContainer, #skillsContainer {
+    width: 70%;
+    align-self: center;
+}
+
+#skillsBox {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#skillsBox span {
+    padding: 6px;
+    margin: 6px;
+}
+
+#introBox {
+    flex-direction: column;
+}
