@@ -1,16 +1,11 @@
 import styles from '../styles/Portfolio.module.css'
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 function Portfolio() {
 
-    const [projects, setProjects] = useState([])
-
-    useEffect(() => {
-        fetch("http://localhost:3000/projects").then(response => response.json()).then(data => {
-            setProjects(data.projects)
-        })
-    })
+    const projects = useSelector((state) => state.users.value.projects)
 
     const projectsList = projects.map((e, key) => {
         return (
@@ -21,7 +16,7 @@ function Portfolio() {
                 <span className={styles.link}>{e.links}</span>
             </div>
         )
-    }, [])
+    })
 
     return (
         <>

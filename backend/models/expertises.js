@@ -15,6 +15,6 @@ const ExpertiseSchema = mongoose.Schema({
     techs: [techsSchema]
 })
 
-const Expertise = mongoose.model('Expertises', ExpertiseSchema)
+const Expertise = mongoose.model('expertises', ExpertiseSchema)
 
 module.exports = Expertise

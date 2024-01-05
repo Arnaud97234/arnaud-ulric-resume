@@ -31,7 +31,10 @@ const userSchema = mongoose.Schema({
     desc: Array,
     languages: [languagesSchema],
     diplomas: [diplomasSchema],
-    skills: [skillsSchema]
+    skills: [skillsSchema],
+    experiences: [{ type: mongoose.Schema.Types.ObjectId, ref: 'experiences' }],
+    expertises: { type: mongoose.Schema.Types.ObjectId, ref: 'expertises' },
+    projects: [{ type: mongoose.Schema.Types.ObjectId, ref: 'projects' }]
 })
 
 const User = mongoose.model('users', userSchema)
