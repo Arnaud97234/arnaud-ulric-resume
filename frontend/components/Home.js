@@ -1,39 +1,26 @@
 import styles from '../styles/Home.module.css'
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 function Home() {
 
-    const [desc, setDesc] = useState([])
-    const [languages, setLanguages] = useState([])
-    const [skills, setSkills] = useState([])
+    const user = useSelector((state) => state.users.value)
 
-    useEffect(() => {
-        fetch("http://localhost:3000/users/arnaud.ulric@gmail.com").then(response => response.json()).then(data => {
-            const desc = data.user.desc
-            const skills = data.user.skills
-            const languages = data.user.languages
-            setDesc(desc)
-            setSkills(skills)
-            setLanguages(languages)
-        })
-    }, [])
-
-    const languageList = languages.map((e) => {
+    const languageList = user.languages.map((e, key) => {
         return (
-            <span>{e.name}: {e.level}</span>
+            <span key={key}>{e.name}: {e.level}</span>
         )
     })
 
-    const skillsList = skills.map((e) => {
+    const skillsList = user.skills.map((e, key) => {
         return (
-            <span>{e.name}</span>
+            <span key={key}>{e.name}</span>
         )
     })
 
-    const formatedDesc = desc.map((e) => {
+    const formatedDesc = user.desc.map((e, key) => {
         return (
-            <p>{e}</p>
+            <p key={key}>{e}</p>
         )
     })
 

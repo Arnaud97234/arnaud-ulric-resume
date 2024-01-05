@@ -7,28 +7,33 @@ import { faPaperPlane, faDownload } from '@fortawesome/fontawesome-free-solid'
 import { useState, useEffect } from 'react'
 import { useRouter } from "next/router";
 import Link from 'next/link'
+import { useDispatch, useSelector } from "react-redux"
+import { addUserToStore } from "@/reducers/users"
 
 function Header() {
 
-    const [name, setName] = useState("")
-    const [title, setTitle] = useState("")
-    const [subTitle, setSubTitle] = useState("")
-    const [links, setLinks] = useState([])
-
     const router = useRouter();
 
+    const dispatch = useDispatch()
+
+    const addUser = (newUser) => {
+        dispatch(addUserToStore(newUser))
+    }
+
     useEffect(() => {
-        fetch("http://localhost:3000/users/arnaud.ulric@gmail.com").then((response) => response.json()).then(data => {
-            const user = data.user
-            setName(user.name)
-            setTitle(user.title)
-            setSubTitle(user.subTitle)
-            setLinks(user.links)
+        fetch("http://localhost:3000/users/arnaud.ulric@gmail.com").then(response => response.json()).then(data => {
+            addUser(data.user)
         })
     }, [])
+    const user = useSelector((state) => state.users.value)
 
-    const getLink = links.map((e, key) => {
-        let icon = e.icon
+    let icon = ""
+    const getLink = user.links.map((e, key) => {
+        if (e.name == 'Github') {
+            icon = faGithubAlt
+        } else {
+            icon = faLinkedinIn
+        }
         return (
             <Link className={styles.contactItem} href={e.url} target="_blank" rel="noreferrer" key={key} >
                 <span className={styles.contactTitle}>{e.name}</span>
@@ -37,14 +42,15 @@ function Header() {
         )
     })
 
+
     return (
         <div className={styles.header}>
             <div className={styles.user}>
-                <Image className={styles.userPicture} src='/userPicture.jpg' width={180} height={180} />
+                <Image className={styles.userPicture} src='/userPicture.jpg' width={180} height={180} alt='user' />
                 <div className={styles.userInfo}>
-                    <h1 className={styles.name}>{name}</h1>
-                    <h2 className={styles.title}>{title}</h2>
-                    <h3 className={styles.subTitle}>{subTitle}</h3>
+                    <h1 className={styles.name}>{user.name}</h1>
+                    <h2 className={styles.title}>{user.title}</h2>
+                    <h3 className={styles.subTitle}>{user.subTitle}</h3>
                 </div>
                 <div className={styles.contact}>
                     {getLink}

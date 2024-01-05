@@ -1,34 +1,13 @@
 import styles from '../styles/Experience.module.css'
 import React from 'react'
-import { useState, useEffect } from 'react'
 import ProgressBar from './progressBar'
+import { useSelector } from 'react-redux'
 
 function Experience() {
 
-    const [exp, setExp] = useState([])
-    const [techs, setTechs] = useState([])
-    const [tools, setTools] = useState([])
-    const [references, setReferences] = useState([])
+    const user = useSelector((state) => state.users.value)
 
-    useEffect(() => {
-        fetch("http://localhost:3000/experiences").then(response => response.json()).then(data => {
-            setExp(data.experiences)
-        })
-
-        fetch("http://localhost:3000/expertises").then(response => response.json()).then(data => {
-            let techs = data.expertises[0].techs
-            let tools = data.expertises[0].tools
-            setTechs(techs)
-            setTools(tools)
-        })
-
-        fetch("http://localhost:3000/users/arnaud.ulric@gmail.com").then(response => response.json()).then(data => {
-            let refs = data.user.diplomas
-            setReferences(refs)
-        })
-    }, [])
-
-    const expList = exp.map((e, key) => {
+    const expList = user.experiences.map((e, key) => {
         let startMonth = new Date(e.startDate)
         startMonth = startMonth.getMonth()
         let startYear = new Date(e.startDate)
@@ -41,9 +20,9 @@ function Experience() {
         let duration = new Date(e.endDate) - new Date(e.startDate)
         duration = Math.round(duration / (1000 * 3600 * 24 * 30.5 * 12))
 
-        let formatedDesc = e.desc.map((e) => {
+        let formatedDesc = e.desc.map((e, key) => {
             return (
-                <p>{e}</p>
+                <p key={key}>{e}</p>
             )
         })
 
@@ -62,30 +41,28 @@ function Experience() {
         )
     })
 
-    const techsList = techs.map((e, key) => {
+    const techsList = user.expertises.techs.map((e, key) => {
         return (
             <ProgressBar className={styles.item} key={key} level={e.level} name={e.name} />
         )
     })
 
-    const toolsList = tools.map((e, key) => {
+    const toolsList = user.expertises.tools.map((e, key) => {
         return (
             <ProgressBar className={styles.item} key={key} level={e.level} name={e.name} />
         )
     })
 
-    const referencesList = references.map((e) => {
+    const referencesList = user.diplomas.map((e, key) => {
         let dateMonth = new Date(e.date).getMonth()
         let dateYear = new Date(e.date).getFullYear()
         return (
-            <div className='boxContent' id={styles.referenceBox}>
+            <div className='boxContent' id={styles.referenceBox} key={key}>
                 <span className={styles.refTitle}>{e.title}</span>
                 <span className={styles.refDate}>{dateMonth}/{dateYear}</span>
             </div>
         )
     })
-
-
 
     return (
         <>
