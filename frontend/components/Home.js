@@ -1,6 +1,10 @@
 import styles from '../styles/Home.module.css'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as brands from '@fortawesome/free-brands-svg-icons'
+import * as regular from '@fortawesome/free-solid-svg-icons'
+import Image from 'next/image'
 
 function Home() {
 
@@ -8,13 +12,25 @@ function Home() {
 
     const languageList = user.languages.map((e, key) => {
         return (
-            <span key={key}>{e.name}: {e.level}</span>
+            <div className={styles.item} key={key}>
+                <span>{e.name}</span>
+                <span>{e.level}</span>
+            </div>
         )
     })
 
     const skillsList = user.skills.map((e, key) => {
+        let iconSource
+        if (brands[e.icon]) {
+            iconSource = brands
+        } else {
+            iconSource = regular
+        }
         return (
-            <span key={key}>{e.name}</span>
+            <div className={styles.item} key={key}>
+                <span key={key}>{e.name}</span>
+                <FontAwesomeIcon icon={iconSource[e.icon]} />
+            </div>
         )
     })
 
@@ -36,8 +52,15 @@ function Home() {
                 <div className='container' id={styles.skillsContainer}>
                     <h2 className='subTitle'>Skills</h2>
                     <div className='boxContent' id={styles.skillsBox}>
-                        {languageList}
-                        {skillsList}
+                        <div className={styles.languageBox}>
+                            <Image className={styles.languageIcon} src='/languageIcon.jpg' width={40} height={40} alt='language' />
+                            <div className={styles.languageList}>
+                                {languageList}
+                            </div>
+                        </div>
+                        <div className={styles.skillsBox}>
+                            {skillsList}
+                        </div>
                     </div>
                 </div>
 
