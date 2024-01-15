@@ -1,6 +1,5 @@
 import styles from '../styles/Portfolio.module.css'
 import React from 'react'
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 function Portfolio() {
