@@ -5,7 +5,8 @@ const experienceSchema = mongoose.Schema({
     company: String,
     desc: Array,
     startDate: Date,
-    endDate: Date
+    endDate: Date,
+    techs: Array
 })
 
 const Experience = mongoose.model('experiences', experienceSchema)

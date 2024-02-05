@@ -1,10 +1,57 @@
-#main {
+#introContainer {
+    margin-right: 20px;
+}
+
+.rightContainer {
+    display: flex;
     flex-direction: column;
-    min-height: 700px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+#skillsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-#introBox, #skillsBox {
+.skill {
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    flex-direction: column;
+    border-radius: 2px;
+    border: solid rgba(37, 150, 190);
+}
+
+.skillItem {
+    padding: 6px;
+}
+
+.icon {
+    margin-right: 10px;
+    height: 18px;
+}
+
+.link {
+    color: #2596be;
+}
+
+.homeBtn {
+    padding: 20px;
+}
+
+.btnGroup {
+    margin: 20px 0 20px 20px;
+    padding: 20px 0 20px 20px;
+}
+
+
+/* #introBox, #skillsBox {
     padding: 50px 100px;
     margin: 50px 150px;
     display: flex; 
@@ -59,4 +106,4 @@
     display: flex;
     flex-direction: column;
     margin: 4px;
-}
+} */

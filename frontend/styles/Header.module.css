@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     height: 30%;
-    background-color: rgb(65, 29, 124);
     background-image: url("../public/headerBackground.jpg");
+    background-size: cover;
     background-position: center;
     color: whitesmoke;
 }
@@ -36,6 +36,7 @@
 
 .userPicture {
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .userInfo {
@@ -50,7 +51,7 @@
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
-    color: #36393b;
+    color: var(--color-2);
     padding: 10px 20px;
     border-radius: 4px;
 }
@@ -62,7 +63,7 @@
     font-size: 20px;
     justify-content: space-between;
     text-decoration: none;
-    color: #36393b;
+    color: var(--color-2);
     cursor: pointer;
 }
 
@@ -72,7 +73,7 @@
 }
 
 .downloadBtn {
-    background-color: #f2aa4c;
+    background-color: var(--color-1);
     display: flex;
     justify-content: space-around;
     align-items: center;
