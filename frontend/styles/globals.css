@@ -1,45 +1,45 @@
 @import url('https://fonts.googleapis.com/css?family=EB Garamond');
 
+:root {
+  --color-1: #2596be;
+  --color-2: #36393b;
+}
+
+body {
+  background-color: var(--color-2);
+  margin: 0;
+  font-family: 'EB Garamond';
+  padding: 0 40px;
+}
+
 .main {
   display: flex;
   height: 100%;
   background-color: whitesmoke;
-  padding: 20px;
-  justify-content: flex-start;
-}
-
-body {
-  background-color: #36393b;
-  margin: 0;
- font-family: 'EB Garamond';
+  padding: 10px;
+  color: var(--color-2);
+  padding: 30px 50px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items:flex-start;
-  background-color: #36393b;
-  border-radius: 3px;
   align-self: normal;
-  margin-top: 10px;
+  width: 100%;
 }
 
 .boxContent {
-  padding: 10px;
   background-color: whitesmoke;
   align-self: normal;
   min-width: 200px;
-  margin: 14px;
+  margin: 10px;
+  padding: 10px;
   border-radius: 2px;
 }
 
 .subTitle {
   border-radius: 3px 3px 0 0;
   font-size: 20px;
-  /* background-color: #f2aa4c; */
-  background-color: whitesmoke;
-  color: #36393b;
   text-align: center;
   align-self: center;
   padding: 14px 30px;
@@ -53,21 +53,19 @@ h2, h3, h4 {
 }
 
 h3 {
-  padding-bottom: 3px;
-  margin-bottom: 3px;
-  color: #f2aa4c;
-  font-size: 22px;
+  color: var(--color-1);
+  font-size: 2rem;
 }
 
 h4 {
-  padding-bottom: 8px;
-  margin-bottom: 8px;
-  font-size: 18px;
+  font-size: 1.5rem;
 }
 
 p {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.375rem;
+  padding: 4px;
+  text-align: justify;
 }
 
 span {
@@ -76,5 +74,5 @@ span {
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--color-2);
 }

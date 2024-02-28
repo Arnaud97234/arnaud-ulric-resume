@@ -1,8 +1,5 @@
-import React from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload } from '@fortawesome/fontawesome-free-solid'
-
-import { PDFDownloadLink, Link, Page, Text, View, Document, Image, StyleSheet } from '@react-pdf/renderer'
+import { Link, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
+import React, { useState, useEffect } from "react"
 
 const styles = StyleSheet.create({
     page: {
@@ -10,7 +7,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         padding: '25px',
-        color: '#36393b',
+        color: 'var(--color-2)',
         fontFamily: 'Times-Roman'
     },
     name: {
@@ -32,13 +29,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingRight: '6px',
         borderRight: '.25px',
-        color: '#36393b'
+        color: 'var(--color-2)'
     },
     right: {
         width: '72%',
         paddingLeft: '6px',
         borderLeft: '.25px',
-        color: '#36393b'
+        color: 'var(--color-2)'
     },
     experiences: {
         display: 'flex',
@@ -83,7 +80,7 @@ const styles = StyleSheet.create({
     },
     separator: {
         height: '.5px',
-        backgroundColor: '#36393b',
+        backgroundColor: 'var(--color-2)',
         marginVertical: '20px',
         width: '90%',
     },
@@ -96,108 +93,105 @@ const styles = StyleSheet.create({
 })
 
 const Pdf = (props) => {
+    let data = props.props
 
-    const File = (props) => {
-        let data = props.props.props
+    const [pdfFile, setPdfFile] = useState(data)
 
-        const experience = data.experiences.map((e) => {
-            let startMonth = new Date(e.startDate)
-            startMonth = startMonth.getMonth()
-            let startYear = new Date(e.startDate)
-            startYear = startYear.getFullYear()
-            let endMonth = new Date(e.endDate)
-            endMonth = endMonth.getMonth()
-            let endYear = new Date(e.endDate)
-            endYear = endYear.getFullYear()
+    useEffect(() => {
+        setPdfFile(data)
+    }, [data])
 
-            let duration = new Date(e.endDate) - new Date(e.startDate)
-            duration = Math.round(duration / (1000 * 3600 * 24 * 30.5 * 12))
+    const experience = pdfFile.experiences.map((e, key) => {
+        let startMonth = new Date(e.startDate)
+        startMonth = startMonth.getMonth()
+        let startYear = new Date(e.startDate)
+        startYear = startYear.getFullYear()
+        let endMonth = new Date(e.endDate)
+        endMonth = endMonth.getMonth()
+        let endYear = new Date(e.endDate)
+        endYear = endYear.getFullYear()
 
-            let formatedDesc = e.desc.map((e, key) => {
-                return (
-                    <Text style={styles.formatedDesc} key={key}>{e}</Text>
-                )
-            })
+        let duration = new Date(e.endDate) - new Date(e.startDate)
+        duration = Math.round(duration / (1000 * 3600 * 24 * 30.5 * 12))
 
+        let formatedDesc = e.desc.map((e, key) => {
             return (
-                <View style={styles.experience}>
-                    <div style={styles.head}>
-                        <div style={[{ flexDirection: 'row' }, { alignItems: 'center' }]}>
-                            <Text style={styles.experiencetitle}>{e.title}</Text>
-                            <Text style={styles.duration}>{startMonth}/{startYear} - {endMonth}/{endYear} ({duration} years)</Text>
-                        </div>
-                        <Text style={styles.company}>{e.company}</Text>
-                    </div>
-                    <div style={styles.desc}>
-                        {formatedDesc}
-                    </div>
-                </View>
-            )
-        })
-
-        const techs = data.expertises.techs.map((e, key) => {
-            return (
-                <Text style={styles.leftItem}>{e.name}</Text>
-            )
-        })
-
-        const tools = data.expertises.tools.map((e, key) => {
-            return (
-                <Text style={styles.leftItem}>{e.name}</Text>
-            )
-        })
-
-        const references = data.diplomas.map((e, key) => {
-            return (
-                <div style={styles.diploma} key={key}>
-                    <Text style={styles.refTitle}>{e.title}</Text>
-                </div>
+                <Text style={styles.formatedDesc} key={key}>{e}</Text>
             )
         })
 
         return (
-            <Document style={styles.main}>
-                <Page style={styles.page}>
-                    <div style={styles.left}>
-                        <View style={styles.leftBox}>
-                            <Text style={styles.name}>{data.name}</Text>
-                            <Text style={styles.title}>{data.title}</Text>
-                            <Text style={styles.subTitle}>{data.subTitle}</Text>
-                        </View>
-                        <span style={styles.separator}></span>
-                        <View style={styles.leftBox}>
-                            <Text style={styles.secondaryTitle}>Contact me</Text>
-                            <Text style={styles.leftItem}>{data.email}</Text>
-                            <Link style={styles.leftItem} href='http://localhost:3001/'>myWebsite.url</Link>
-                        </View>
-                        <span style={styles.separator}></span>
-                        <View style={styles.leftBox}>
-                            <Text style={styles.secondaryTitle}>Skills</Text>
-                            {techs}
-                            <Text style={[styles.secondaryTitle, { paddingTop: '24px' }]} >Tools</Text>
-                            {tools}
-                        </View>
-                        <span style={styles.separator}></span>
-                        <View style={styles.leftBox}>
-                            <Text style={styles.secondaryTitle}>Diplomas</Text>
-                            {references}
-                        </View>
+            <View style={styles.experience} key={key}>
+                <div style={styles.head}>
+                    <div style={[{ flexDirection: 'row' }, { alignItems: 'center' }]}>
+                        <Text style={styles.experiencetitle}>{e.title}</Text>
+                        <Text style={styles.duration}>{startMonth}/{startYear} - {endMonth}/{endYear} ({duration} years)</Text>
                     </div>
-                    <div style={styles.right}>
-                        <View style={styles.experiences}>
-                            <Text style={styles.secondaryTitle}>Experience</Text>
-                            {experience}
-                        </View>
-                    </div>
-                </Page>
-            </Document>
+                    <Text style={styles.company}>{e.company}</Text>
+                </div>
+                <div style={styles.desc}>
+                    {formatedDesc}
+                </div>
+            </View>
         )
-    }
+    })
+
+    const techs = data.expertises.techs.map((e, key) => {
+        return (
+            <Text style={styles.leftItem} key={key}>{e.name}</Text>
+        )
+    })
+
+    const tools = data.expertises.tools.map((e, key) => {
+        return (
+            <Text style={styles.leftItem} key={key}>{e.name}</Text>
+        )
+    })
+
+    const references = data.diplomas.map((e, key) => {
+        return (
+            <div style={styles.diploma} key={key}>
+                <Text style={styles.refTitle}>{e.title}</Text>
+            </div>
+        )
+    })
 
     return (
-        <PDFDownloadLink style={styles.DownloadButton} document={<File props={props} />} fileName="arnaud-ulric-resume.pdf">
-            <span className={styles.contactLogo}>.pdf<FontAwesomeIcon icon={faDownload} /></span>
-        </PDFDownloadLink>
+        <Document style={styles.main}>
+            <Page style={styles.page}>
+                <div style={styles.left}>
+                    <View style={styles.leftBox}>
+                        <Text style={styles.name}>{data.name}</Text>
+                        <Text style={styles.title}>{data.title}</Text>
+                        <Text style={styles.subTitle}>{data.subTitle}</Text>
+                    </View>
+                    <span style={styles.separator}></span>
+                    <View style={styles.leftBox}>
+                        <Text style={styles.secondaryTitle}>Contact me</Text>
+                        <Text style={styles.leftItem}>{data.email}</Text>
+                        <Link style={styles.leftItem} href='http://localhost:3001/'>myWebsite.url</Link>
+                    </View>
+                    <span style={styles.separator}></span>
+                    <View style={styles.leftBox}>
+                        <Text style={styles.secondaryTitle}>Skills</Text>
+                        {techs}
+                        <Text style={[styles.secondaryTitle, { paddingTop: '24px' }]} >Tools</Text>
+                        {tools}
+                    </View>
+                    <span style={styles.separator}></span>
+                    <View style={styles.leftBox}>
+                        <Text style={styles.secondaryTitle}>Diplomas</Text>
+                        {references}
+                    </View>
+                </div>
+                <div style={styles.right}>
+                    <View style={styles.experiences}>
+                        <Text style={styles.secondaryTitle}>Experience</Text>
+                        {experience}
+                    </View>
+                </div>
+            </Page>
+        </Document>
     )
 }
 

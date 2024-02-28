@@ -2,12 +2,14 @@ const mongoose = require('mongoose')
 
 const toolsSchema = mongoose.Schema({
     name: String,
-    level: Number
+    level: Number,
+    icon: String
 })
 
 const techsSchema = mongoose.Schema({
     name: String,
-    level: Number
+    level: Number,
+    icon: String
 })
 
 const ExpertiseSchema = mongoose.Schema({

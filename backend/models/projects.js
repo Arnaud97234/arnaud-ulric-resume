@@ -4,7 +4,8 @@ const projectSchema = mongoose.Schema({
     name: String,
     techs: Array,
     desc: String,
-    links: Array
+    links: Array,
+    image: String
 })
 
 const Project = mongoose.model('projects', projectSchema)

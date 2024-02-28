@@ -1,62 +1,64 @@
-#main {
-    flex-direction: column;
-    min-height: 700px;
-    justify-content: center;
-}
-
-#introBox, #skillsBox {
-    padding: 50px 100px;
-    margin: 50px 150px;
-    display: flex; 
-}
-
-#introContainer, #skillsContainer {
-    width: 70%;
-    align-self: center;
-}
-
-#skillsBox {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-#skillsBox span {
-    padding: 6px;
-    margin: 6px;
-}
-
-#introBox {
-    flex-direction: column;
-}
-
-.languageBox {
+.leftContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    padding: 10px;
-    border-radius: 3px;
-    margin-bottom: 20px;
 }
 
-.languageIcon {
-    border-radius: 50px;
-    margin-bottom: 8px;
+.rightContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#skillsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+.skill {
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    flex-direction: column;
+    border-radius: 3px;
+    background-color: var(--color-1);
+    color: whitesmoke;
+}
+
+.skillItem {
+    padding: 1px;
+}
+
+.icon {
+    margin-right: 10px;
+    height: 18px;
+}
+
+.link {
+    color: #2596be;
+}
+
+.homeBtn {
+    padding: 20px;
+    color: var(--color-1);
+    border: color(var(--color-1));
+    font-weight: bold;
+}
+
+.userPicture {
+    border-radius: 8px;
+    margin-left: 40px;
     padding: 4px;
 }
 
-.languageList {
-    display: flex;
-    flex-direction: row;
-    background-color: whitesmoke;
-    margin-bottom: 4px;
-    border-radius: 2px;
-}
-
-.item {
-    display: flex;
-    flex-direction: column;
-    margin: 4px;
+.btnGroup {
+    margin-right: 40px;
+    width: 145px;
 }
