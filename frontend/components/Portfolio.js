@@ -1,6 +1,7 @@
 import styles from '../styles/Portfolio.module.css'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Project from './projects/Project'
 
 function Portfolio() {
 
@@ -8,26 +9,14 @@ function Portfolio() {
 
     const projectsList = projects.map((e, key) => {
         return (
-            <div className='boxContent' id={styles.projectBox} key={key}>
-                <h3 className={styles.projectName}>{e.name}</h3>
-                <p>{e.desc}</p>
-                <span className={styles.tech}>{e.techs}</span>
-                <span className={styles.link}>{e.links}</span>
-            </div>
+            <Project props={e} key={key}/>
         )
     })
 
     return (
-        <>
             <main className='main' id={styles.main}>
-                <div className='container' id={styles.portfolioContainer}>
-                    <h2 className='subTitle'>Portfolio</h2>
-                    <div className='box' id={styles.box}>
-                        {projectsList}
-                    </div>
-                </div>
+                    {projectsList}
             </main>
-        </>
     )
 }
 

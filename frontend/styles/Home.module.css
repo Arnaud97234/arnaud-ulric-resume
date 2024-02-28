@@ -1,22 +1,25 @@
-#introContainer {
-    margin-right: 20px;
+.leftContainer {
+    display: flex;
+    flex-direction: column;
 }
 
 .rightContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 80%;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 20px;
 }
 
 #skillsContainer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 40px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
 }
 
 .skill {
@@ -24,12 +27,13 @@
     padding: 10px;
     margin: 5px;
     flex-direction: column;
-    border-radius: 2px;
-    border: solid rgba(37, 150, 190);
+    border-radius: 3px;
+    background-color: var(--color-1);
+    color: whitesmoke;
 }
 
 .skillItem {
-    padding: 6px;
+    padding: 1px;
 }
 
 .icon {
@@ -43,67 +47,18 @@
 
 .homeBtn {
     padding: 20px;
+    color: var(--color-1);
+    border: color(var(--color-1));
+    font-weight: bold;
 }
 
-.btnGroup {
-    margin: 20px 0 20px 20px;
-    padding: 20px 0 20px 20px;
-}
-
-
-/* #introBox, #skillsBox {
-    padding: 50px 100px;
-    margin: 50px 150px;
-    display: flex; 
-}
-
-#introContainer, #skillsContainer {
-    width: 70%;
-    align-self: center;
-}
-
-#skillsBox {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-#skillsBox span {
-    padding: 6px;
-    margin: 6px;
-}
-
-#introBox {
-    flex-direction: column;
-}
-
-.languageBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    padding: 10px;
-    border-radius: 3px;
-    margin-bottom: 20px;
-}
-
-.languageIcon {
-    border-radius: 50px;
-    margin-bottom: 8px;
+.userPicture {
+    border-radius: 8px;
+    margin-left: 40px;
     padding: 4px;
 }
 
-.languageList {
-    display: flex;
-    flex-direction: row;
-    background-color: whitesmoke;
-    margin-bottom: 4px;
-    border-radius: 2px;
+.btnGroup {
+    margin-right: 40px;
+    width: 145px;
 }
-
-.item {
-    display: flex;
-    flex-direction: column;
-    margin: 4px;
-} */

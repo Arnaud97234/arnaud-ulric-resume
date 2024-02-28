@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/Experience.module.css'
+import styles from '../../styles/Resume.module.css'
 
 const ProgressBar = (props) => {
     let xpLevel = 5

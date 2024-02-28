@@ -1,3 +1,14 @@
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.projectCard {
+    width: 400px;
+    margin-bottom: 50px;
+}
+
 .tech {
     color: red;
 }
@@ -6,26 +17,8 @@
     color: blue;
 }
 
-#projectBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
-    min-width: 250px;
-    min-height: 250px;
-}
-
-#portfolioContainer {
-    display: flex;
-}
-
-#box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
 .projectName {
-    margin: 6px;
+    font-size: 22px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
 }

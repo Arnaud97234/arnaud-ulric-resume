@@ -1,4 +1,4 @@
-import styles from '../../styles/Experience.module.css'
+import styles from '../../styles/Resume.module.css'
 import React from 'react'
 import Image from 'next/image'
 

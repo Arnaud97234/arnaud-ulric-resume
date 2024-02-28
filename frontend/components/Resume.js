@@ -1,4 +1,4 @@
-import styles from '../styles/Experience.module.css'
+import styles from '../styles/Resume.module.css'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Experience from './resume/Experience'
@@ -40,9 +40,8 @@ function Resume() {
                 {technicals && <Technicals props={technicals} />}
                 {diplomas && <Diplomas props={diplomas} />}
             </div>
-            <Divider style={{ margin: '0 10px' }} orientation='vertical' variant='middle' flexItem />
+            <Divider style={{ margin: '0 40px' }} orientation='vertical' variant='middle' flexItem />
             <div className={styles.experiencesContainer}>
-                <h2 className='subTitle'>Work</h2>
                 <div className='box'>
                     {experiences && <Experience props={experiences} />}
                 </div>

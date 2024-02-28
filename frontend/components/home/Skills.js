@@ -24,8 +24,8 @@ function Skills() {
         }
         return (
             <div className={styles.skill} key={key}>
-                <span className={styles.skillItem} key={key}>{e.name}</span>
                 <FontAwesomeIcon className={styles.skillItem} icon={iconSource[e.icon]} />
+                <span className={styles.skillItem} key={key}>{e.name}</span>
             </div>
         )
     })

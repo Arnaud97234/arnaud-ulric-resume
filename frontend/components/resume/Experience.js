@@ -1,10 +1,11 @@
-import styles from '../../styles/Experience.module.css'
+import styles from '../../styles/Resume.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as brands from '@fortawesome/free-brands-svg-icons'
 import * as regular from '@fortawesome/free-solid-svg-icons'
 import { faLocationArrow } from '@fortawesome/fontawesome-free-solid'
 import Tooltip from '@mui/material/Tooltip'
 import Divider from '@mui/material/Divider'
+import Zoom from '@mui/material/Zoom'
 
 function Experience(props) {
     let experienceList = props.props.map((e, key) => {
@@ -34,7 +35,7 @@ function Experience(props) {
                 iconSource = regular
             }
             return (
-                <Tooltip className={styles.expTechsItem} key={key} title={e.name} arrow>
+                <Tooltip TransitionComponent={Zoom} className={styles.expTechsItem} key={key} title={e.name} arrow>
                     <FontAwesomeIcon icon={iconSource[e.icon]} />
                 </Tooltip>
             )

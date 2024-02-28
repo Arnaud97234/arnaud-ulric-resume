@@ -1,4 +1,6 @@
 .header {
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: column;
     height: 30%;
@@ -6,18 +8,21 @@
     background-size: cover;
     background-position: center;
     color: whitesmoke;
-}
-
-.name {
-    font-size: 50px;
-    margin-top: 0;
-    font-weight: normal;
+    z-index: 1;
 }
 
 .title {
-    font-size: 30px;
+    font-size: 60px;
+    margin: 0;
+}
+
+.name {
+    font-size: 40px;
     padding: 4px;
     margin: 0;
+    font-weight: normal;
+    align-self: center;
+    cursor: pointer;
 }
 
 .subTitle {
@@ -31,45 +36,13 @@
 .user {
     display: flex;
     justify-content: space-between;
-    margin: 30px 50px;
-}
-
-.userPicture {
-    border-radius: 50%;
-    cursor: pointer;
+    margin: 0 50px;
 }
 
 .userInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-
-.contact {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-    color: var(--color-2);
-    padding: 10px 20px;
-    border-radius: 4px;
-}
-
-.contactItem {
-    display: flex;
-    padding: 0 10px;
-    margin: 10px;
-    font-size: 20px;
-    justify-content: space-between;
-    text-decoration: none;
-    color: var(--color-2);
-    cursor: pointer;
-}
-
-.contactLogo {
-    width: auto;
-    margin-left: 20px;
 }
 
 .downloadBtn {
@@ -88,19 +61,23 @@
     font-family: "EB Garamond";
 }
 
-.navigation {
+.links {
     display: flex;
-    justify-content: space-evenly;
-    padding: 20px;
-    justify-self: end;
-    font-size: 22px;
+    justify-content: flex-start;
+    padding: 10px 50px;
     border-top: 1px solid whitesmoke;
 }
 
-.navItem {
-    background-color: rgba(31, 10, 63, 0.3);
-    padding: 8px 30px;
-    border-radius: 4px;
-    font-size: 22px;
+.linkItem {
+    color: whitesmoke;
     cursor: pointer;
+    border-radius: 2px;
+    margin: 0 6px;
+    padding: 0px 20px;
+    height: 30px;
+    border-color: whitesmoke;
+}
+
+.linkItem > svg {
+    vertical-align: middle;
 }
