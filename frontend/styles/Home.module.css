@@ -1,11 +1,13 @@
 .leftContainer {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .rightContainer {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 #skillsContainer {

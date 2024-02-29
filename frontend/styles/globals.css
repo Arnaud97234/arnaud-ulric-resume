@@ -10,6 +10,7 @@ body {
   margin: 0;
   font-family: 'EB Garamond';
   padding: 0 40px;
+  min-width: 1000px;
 }
 
 .main {

@@ -3,7 +3,6 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    height: 30%;
     background-image: url("../public/headerBackground.jpg");
     background-size: cover;
     background-position: center;
