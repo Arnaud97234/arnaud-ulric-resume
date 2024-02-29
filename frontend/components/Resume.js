@@ -8,15 +8,14 @@ import Languages from './resume/Languages'
 import Divider from '@mui/material/Divider'
 //import Button from '@mui/material/Button'
 // import CloudDownloadTwoToneIcon from '@mui/icons-material/CloudDownloadTwoTone'
-import Pdf from "./Pdf"
-import { PDFDownloadLink } from '@react-pdf/renderer'
+import Pdf from './Pdf'
 
 function Resume() {
-    const [pdfFile, setPdfFile] = useState(false)
     const [experiences, setExperiences] = useState(null)
     const [diplomas, setDiplomas] = useState(null)
     const [technicals, setTechnicals] = useState(null)
     const [languages, setLanguages] = useState(null)
+    const [pdf, setPdf] = useState(null)
 
     const data = useSelector((state) => state.users.value)
 
@@ -25,17 +24,13 @@ function Resume() {
         setExperiences(data.experiences)
         setTechnicals(data.expertises)
         setLanguages(data.languages)
-        setPdfFile(<Pdf props={data} />)
+        setPdf(data)
     }, [data])
-
+    
     return (
         <main className='main' id={styles.main}>
             <div className={styles.leftContainer}>
-                {pdfFile &&
-                    <PDFDownloadLink className={styles.downloadBtn} document={pdfFile} fileName="arnaud-ulric-resume.pdf" >
-                        .Pdf
-                    </PDFDownloadLink>
-                }
+                {/* {pdf && <Pdf props={pdf} />} */}
                 {languages && <Languages props={languages} />}
                 {technicals && <Technicals props={technicals} />}
                 {diplomas && <Diplomas props={diplomas} />}
@@ -46,7 +41,7 @@ function Resume() {
                     {experiences && <Experience props={experiences} />}
                 </div>
             </div>
-        </main >
+        </main>
     )
 }
 

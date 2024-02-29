@@ -1,5 +1,6 @@
-import { Link, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
+import { PDFDownloadLink, Link, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
 import React, { useState, useEffect } from "react"
+// import { PDFDownloadLink } from '@react-pdf/renderer'
 
 const styles = StyleSheet.create({
     page: {
@@ -92,16 +93,14 @@ const styles = StyleSheet.create({
     }
 })
 
-const Pdf = (props) => {
+function Pdf(props) {
     let data = props.props
-
-    const [pdfFile, setPdfFile] = useState(data)
-
+    const [pdfFile, setPdfFile] = useState(false)
     useEffect(() => {
         setPdfFile(data)
     }, [data])
 
-    const experience = pdfFile.experiences.map((e, key) => {
+    let experience = data.experiences.map((e, key) => {
         let startMonth = new Date(e.startDate)
         startMonth = startMonth.getMonth()
         let startYear = new Date(e.startDate)
@@ -156,7 +155,8 @@ const Pdf = (props) => {
         )
     })
 
-    return (
+    const file = () => {
+        return(
         <Document style={styles.main}>
             <Page style={styles.page}>
                 <div style={styles.left}>
@@ -192,6 +192,14 @@ const Pdf = (props) => {
                 </div>
             </Page>
         </Document>
+        )
+    }
+
+    return (
+        pdfFile &&
+        <PDFDownloadLink className={styles.downloadBtn} document={file} fileName="arnaud-ulric-resume.pdf">
+            <span>.pdf</span>
+        </PDFDownloadLink>
     )
 }
 
