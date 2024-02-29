@@ -10,15 +10,25 @@
 }
 
 .tech {
-    color: red;
+    color: var(--color-1);
+    border: solid 1px;
+    padding: 4px 6px;
+    margin: 0px 2px;
+    font-size: 14px;
+    border-radius: 3px;
 }
 
-.link {
-    color: blue;
+.techsList {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .projectName {
     font-size: 22px;
     margin-bottom: 6px;
     padding-bottom: 6px;
+}
+
+.projectBox a {
+    margin-right: 10px;
 }

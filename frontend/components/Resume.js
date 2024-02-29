@@ -31,11 +31,11 @@ function Resume() {
     return (
         <main className='main' id={styles.main}>
             <div className={styles.leftContainer}>
-                {/* {pdfFile &&
+                {pdfFile &&
                     <PDFDownloadLink className={styles.downloadBtn} document={pdfFile} fileName="arnaud-ulric-resume.pdf" >
                         .Pdf
                     </PDFDownloadLink>
-                } */}
+                }
                 {languages && <Languages props={languages} />}
                 {technicals && <Technicals props={technicals} />}
                 {diplomas && <Diplomas props={diplomas} />}

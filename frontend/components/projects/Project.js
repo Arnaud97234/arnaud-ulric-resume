@@ -6,7 +6,6 @@ import CardMedia from "@mui/material/CardMedia"
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
 import Backdrop from "@mui/material/Backdrop"
-import Fade from "@mui/material/Fade"
 import { Button, CardActionArea, CardActions } from "@mui/material"
 
 function Project(props) {
@@ -18,9 +17,15 @@ function Project(props) {
 
     const links = projects.links.map((e, key) => {
         return (
-        <Button href={e} key={key} variant="outlined">
+        <Button href={e} key={key} variant="outlined" target="_blank">
             View code
         </Button>
+        )
+    })
+
+    const techs = projects.techs.map((e, key) => {
+        return (
+            <span className={styles.tech}>{e}</span>
         )
     })
 
@@ -39,7 +44,9 @@ function Project(props) {
                     }
                 }}
             >
-                    <Box sx={{ 
+                    <Box 
+                        className={styles.projectBox}
+                        sx={{
                         position: 'absolute',
                         top: '50%',
                         left: '50%',
@@ -50,8 +57,9 @@ function Project(props) {
                         boxShadow: 24,
                         p: 4
                         }}>
-                            <h2 id="modal-title">{projects.name}</h2>
-                            <p id="modal-description">{projects.desc}</p>
+                            <h2 id="modal-title" style={{marginBottom: 10}}>{projects.name}</h2>
+                            <p id="modal-description" style={{marginBottom: 20}}>{projects.desc}</p>
+                            {links}
                     </Box>    
             </Modal>
         )
@@ -64,8 +72,9 @@ function Project(props) {
                     <CardMedia component="img" sx={{ height: 200 }} image={`/${projects.image}`} alt={projects.name} />
                     <CardContent>
                         <h3 className={styles.projectName}>{projects.name}</h3>
-                        {/* <p>{projects.desc}</p> */}
-                        <span className={styles.tech}>{projects.techs}</span>
+                        <div className={styles.techsList}>
+                            {techs}
+                        </div>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
