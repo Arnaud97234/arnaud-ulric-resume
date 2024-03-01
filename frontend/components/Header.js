@@ -1,6 +1,6 @@
 import styles from "../styles/Header.module.css"
 import React, { useState, useEffect } from 'react'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+//import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as brands from '@fortawesome/free-brands-svg-icons'
 import { faPaperPlane, faDownload } from '@fortawesome/fontawesome-free-solid'
@@ -60,6 +60,16 @@ function Header() {
         )
     }
 
+    const downloadPdfBtn = () => {
+        return (
+            <Tooltip title="Download resume" TransitionComponent={Zoom} placement="top" arrow>
+            <Button variant="outlined" className={styles.linkItem} href='../public/arnaud-ulric-resume.pdf' download='arnaud-ulric-resume.pdf'>
+                <span><FontAwesomeIcon icon={faDownload} /></span>
+            </Button>
+            </Tooltip>
+        )
+    }
+
     return (
         <div className={styles.header}>
             <div className={styles.user}>
@@ -75,6 +85,7 @@ function Header() {
             <div className={styles.links}>
                 {links}
                 {copyToClipboardButton()}
+                {downloadPdfBtn()}
             </div>
             </StyledEngineProvider>
         </div>
