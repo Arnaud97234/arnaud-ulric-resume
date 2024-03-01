@@ -10,6 +10,8 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationArrow, faChevronRight } from '@fortawesome/fontawesome-free-solid'
 
+import { StyledEngineProvider } from '@mui/material/styles'
+
 function Home() {
     const router = useRouter()
 
@@ -31,6 +33,7 @@ function Home() {
             <Divider style={{ margin: '0 40px' }} orientation='vertical' variant='middle' flexItem />
             <div className={styles.rightContainer}>
                 <div className={styles.navigation}>
+                <StyledEngineProvider injectFirst>
                     <ButtonGroup
                         className={styles.btnGroup}
                         orientation="vertical"
@@ -38,6 +41,7 @@ function Home() {
                         variant="text">
                         {buttons}
                     </ButtonGroup>
+                    </StyledEngineProvider>
                     <Image className={styles.userPicture} src='/userPicture.jpg' width={320} height={320} alt='user' priority={true}/>
                 </div>
                 <Divider component="div" textAlign='left' style={{paddingTop: "20px"}}>

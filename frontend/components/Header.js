@@ -11,6 +11,8 @@ import { addUserToStore } from "@/reducers/users"
 import Tooltip from '@mui/material/Tooltip'
 import Zoom from '@mui/material/Zoom'
 
+import { StyledEngineProvider } from '@mui/material/styles'
+
 function Header() {
     const router = useRouter()
 
@@ -69,10 +71,12 @@ function Header() {
                     <h3 className={styles.subTitle}>{user.subTitle}</h3>
                 </div>
             </div>
+            <StyledEngineProvider injectFirst>
             <div className={styles.links}>
                 {links}
                 {copyToClipboardButton()}
             </div>
+            </StyledEngineProvider>
         </div>
     )
 }
