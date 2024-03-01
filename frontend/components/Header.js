@@ -21,7 +21,7 @@ function Header() {
     }
     const [copied, setCopied] = useState(false)
     useEffect(() => {
-        fetch("https://arnaud-ulric-resume-backend.vercel.app/users/arnaud.ulric@gmail.com").then(response => response.json()).then(data => {
+        fetch("https://arnaud-ulric-resume-backend.vercel.app/users/arnaud.ulric@gmail.com", {method: 'GET', mode: 'no-cors'}).then(response => response.json()).then(data => {
             addUser(data.user)
         })
     }, [])
