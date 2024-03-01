@@ -6,7 +6,9 @@ import CardMedia from "@mui/material/CardMedia"
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
 import Backdrop from "@mui/material/Backdrop"
-import { Button, CardActionArea, CardActions } from "@mui/material"
+import Button from '@mui/material/Button';
+import CardActionArea from '@mui/material/CardActionArea'
+import CardActions from '@mui/material/CardActions'
 
 function Project(props) {
     const projects = props.props
