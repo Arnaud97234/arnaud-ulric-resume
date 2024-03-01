@@ -63,7 +63,7 @@ function Header() {
     const downloadPdfBtn = () => {
         return (
             <Tooltip title="Download resume" TransitionComponent={Zoom} placement="top" arrow>
-            <Button variant="outlined" className={styles.linkItem} href='../public/arnaud-ulric-resume.pdf' download='arnaud-ulric-resume.pdf'>
+            <Button variant="outlined" className={styles.linkItem} href='/arnaud-ulric-resume.pdf' download='arnaud-ulric-resume.pdf'>
                 <span><FontAwesomeIcon icon={faDownload} /></span>
             </Button>
             </Tooltip>
