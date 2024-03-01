@@ -16,12 +16,15 @@
 }
 
 .name {
-    font-size: 40px;
+    font-size: 60px;
     padding: 4px;
     margin: 0;
     font-weight: normal;
     align-self: center;
     cursor: pointer;
+    /* font-family: "Mr Dafoe", cursive; */
+    font-family: "Aguafina Script", cursive;
+    font-weight: normal;
 }
 
 .subTitle {
