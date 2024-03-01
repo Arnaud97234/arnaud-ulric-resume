@@ -14,9 +14,11 @@ function Portfolio() {
     })
 
     return (
+        <StyledEngineProvider injectFirst>
             <main className='main' id={styles.main}>
                     {projectsList}
             </main>
+        </StyledEngineProvider>
     )
 }
 
