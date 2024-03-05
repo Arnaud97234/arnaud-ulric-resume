@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { StyledEngineProvider } from '@mui/material/styles'
-import '../styles/fonts/webfontkit-Abel/abel-regular-webfront.woff'
 
 config.autoAddCss = false
 
