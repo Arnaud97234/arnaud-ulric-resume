@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationArrow, faChevronRight } from '@fortawesome/fontawesome-free-solid'
 
-import { StyledEngineProvider } from '@mui/material/styles'
+import StyledEngineProvider from '@mui/material/styles'
 
 function Home() {
     const router = useRouter()
