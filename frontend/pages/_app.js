@@ -7,7 +7,6 @@ config.autoAddCss = false
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import users from '../reducers/users'
-import { StyledEngineProvider } from '@mui/material/styles'
 
 const store = configureStore({
   reducer: { users },
@@ -18,9 +17,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-      <StyledEngineProvider injectFirst>
         <Component {...pageProps} />
-      </StyledEngineProvider>
       </Provider>
     </>
   )

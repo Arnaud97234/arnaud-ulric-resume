@@ -71,6 +71,7 @@ function Header() {
     }
 
     return (
+        <StyledEngineProvider injectFirst>
         <div className={styles.header}>
             <div className={styles.user}>
                 <h2 className={styles.name} onClick={() => {
@@ -81,14 +82,13 @@ function Header() {
                     <h3 className={styles.subTitle}>{user.subTitle}</h3>
                 </div>
             </div>
-            <StyledEngineProvider injectFirst>
             <div className={styles.links}>
                 {links}
                 {copyToClipboardButton()}
                 {downloadPdfBtn()}
             </div>
-            </StyledEngineProvider>
         </div>
+        </StyledEngineProvider>
     )
 }
 

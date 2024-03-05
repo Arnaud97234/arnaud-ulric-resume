@@ -6,9 +6,8 @@ import Technicals from './resume/Technicals'
 import Diplomas from './resume/Diplomas'
 import Languages from './resume/Languages'
 import Divider from '@mui/material/Divider'
-//import Button from '@mui/material/Button'
-// import CloudDownloadTwoToneIcon from '@mui/icons-material/CloudDownloadTwoTone'
-import Pdf from './Pdf'
+
+import { StyledEngineProvider } from '@mui/material/styles'
 
 function Resume() {
     const [experiences, setExperiences] = useState(null)
@@ -26,6 +25,7 @@ function Resume() {
     }, [data])
     
     return (
+        <StyledEngineProvider injectFirst>
         <main className='main' id={styles.main}>
             <div className={styles.leftContainer}>
                 {languages && <Languages props={languages} />}
@@ -39,6 +39,7 @@ function Resume() {
                 </div>
             </div>
         </main>
+        </StyledEngineProvider>
     )
 }
 
