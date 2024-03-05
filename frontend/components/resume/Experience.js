@@ -6,6 +6,8 @@ import { faLocationArrow } from '@fortawesome/fontawesome-free-solid'
 import Tooltip from '@mui/material/Tooltip'
 import Divider from '@mui/material/Divider'
 import Zoom from '@mui/material/Zoom'
+import { StyledEngineProvider } from '@mui/material/styles'
+
 
 function Experience(props) {
     let experienceList = props.props.map((e, key) => {
@@ -62,9 +64,11 @@ function Experience(props) {
     })
 
     return (
+        <StyledEngineProvider injectFirst>
         <div className='container' id={styles.experiencesContainer}>
             {experienceList}
         </div>
+        </StyledEngineProvider>
     )
 }
 

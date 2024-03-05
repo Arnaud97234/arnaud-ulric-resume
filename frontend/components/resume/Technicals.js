@@ -1,5 +1,6 @@
 import styles from '../../styles/Resume.module.css'
 import ProgressBar from './ProgressBar'
+import { StyledEngineProvider } from '@mui/material/styles'
 
 function Technicals(props) {
 
@@ -16,6 +17,7 @@ function Technicals(props) {
     })
 
     return (
+        <StyledEngineProvider injectFirst>
         <div className='container' id={styles.expertiseBox}>
             <div className='box'>
                 <div className='boxContent' id={styles.techsBox}>
@@ -28,6 +30,7 @@ function Technicals(props) {
                 </div>
             </div>
         </div>
+        </StyledEngineProvider>
     )
 }
 

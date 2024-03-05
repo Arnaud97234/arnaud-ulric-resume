@@ -2,7 +2,6 @@ import styles from '../styles/Portfolio.module.css'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Project from './projects/Project'
-import { StyledEngineProvider } from '@mui/material/styles'
 
 function Portfolio() {
 
@@ -10,9 +9,7 @@ function Portfolio() {
 
     const projectsList = projects.map((e, key) => {
         return (
-            <StyledEngineProvider injectFirst>
             <Project props={e} key={key}/>
-            </StyledEngineProvider>
         )
     })
 

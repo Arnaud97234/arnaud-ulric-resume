@@ -1,4 +1,5 @@
 import styles from '../../styles/Resume.module.css'
+import { StyledEngineProvider } from '@mui/material/styles'
 
 function Diplomas(props) {
 
@@ -16,6 +17,7 @@ function Diplomas(props) {
 
 
     return (
+        <StyledEngineProvider injectFirst>
         <div className='container' id={styles.diplomasContainer}>
             <div className='box'>
                 <h2 className='subTitle'>References</h2>
@@ -24,6 +26,7 @@ function Diplomas(props) {
                 </div>
             </div>
         </div>
+        </StyledEngineProvider>
     )
 }
 

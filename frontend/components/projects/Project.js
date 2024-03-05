@@ -7,6 +7,7 @@ import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
 import Backdrop from "@mui/material/Backdrop"
 import { Button, CardActionArea, CardActions } from "@mui/material"
+import { StyledEngineProvider } from '@mui/material/styles'
 
 function Project(props) {
     const projects = props.props
@@ -25,7 +26,7 @@ function Project(props) {
 
     const techs = projects.techs.map((e, key) => {
         return (
-            <span className={styles.tech}>{e}</span>
+            <span className={styles.tech} key={key}>{e}</span>
         )
     })
 
@@ -67,6 +68,7 @@ function Project(props) {
 
     return (
         <>
+            <StyledEngineProvider injectFirst>
             <Card sx={{ maxWidth: 400 }} className={styles.projectCard}>
                 <CardActionArea onClick={handleOpen}>
                     <CardMedia component="img" sx={{ height: 200 }} image={`/${projects.image}`} alt={projects.name} />
@@ -82,6 +84,7 @@ function Project(props) {
                 </CardActions>
             </Card>
             {open && <ProjectModal />}
+            </StyledEngineProvider>
         </>
     )
 

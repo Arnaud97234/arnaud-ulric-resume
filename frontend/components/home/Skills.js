@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as brands from '@fortawesome/free-brands-svg-icons'
 import * as regular from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
+import { StyledEngineProvider } from '@mui/material/styles'
 
 function Skills() {
 
@@ -31,9 +32,11 @@ function Skills() {
     })
 
     return (
+        <StyledEngineProvider injectFirst>
         <div className='container' id={styles.skillsContainer}>
             {skillsList}
         </div>
+        </StyledEngineProvider>
     )
 }
 

@@ -1,6 +1,5 @@
 import styles from "../styles/Header.module.css"
 import React, { useState, useEffect } from 'react'
-//import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as brands from '@fortawesome/free-brands-svg-icons'
 import { faPaperPlane, faDownload } from '@fortawesome/fontawesome-free-solid'
@@ -10,8 +9,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { addUserToStore } from "@/reducers/users"
 import Tooltip from '@mui/material/Tooltip'
 import Zoom from '@mui/material/Zoom'
-
-import { StyledEngineProvider } from '@mui/material/styles'
 
 function Header() {
     const router = useRouter()
@@ -71,7 +68,6 @@ function Header() {
     }
 
     return (
-        <StyledEngineProvider injectFirst>
         <div className={styles.header}>
             <div className={styles.user}>
                 <h2 className={styles.name} onClick={() => {
@@ -88,7 +84,6 @@ function Header() {
                 {downloadPdfBtn()}
             </div>
         </div>
-        </StyledEngineProvider>
     )
 }
 
