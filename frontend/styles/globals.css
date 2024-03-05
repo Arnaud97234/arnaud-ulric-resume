@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=EB Garamond');
 @import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Mr+Dafoe&family=Mrs+Saint+Delafield&family=Water+Brush&display=swap');
+
+@font-face {
+  font-family: Abel;
+  src: url("./fonts/webfontkit-Abel/abel-regular-webfont.woff");
+}
 :root {
   --color-1: #2596be;
   --color-2: #36393b;
@@ -8,9 +12,9 @@
 body {
   background-color: var(--color-2);
   margin: 0;
-  font-family: 'EB Garamond';
   padding: 0 40px;
   min-width: 1000px;
+  font-family: "Abel";
 }
 
 .main {

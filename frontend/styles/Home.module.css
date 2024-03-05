@@ -52,6 +52,8 @@
     color: var(--color-1);
     border: color(var(--color-1));
     font-weight: bold;
+    font-family: 'Abel';
+    font-size: 16px;
 }
 
 .userPicture {

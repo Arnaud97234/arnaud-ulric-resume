@@ -9,6 +9,10 @@
     margin-bottom: 50px;
 }
 
+.projectCard * {
+    font-family: 'Abel';
+}
+
 .tech {
     color: var(--color-1);
     border: solid 1px;
@@ -31,4 +35,5 @@
 
 .projectBox a {
     margin-right: 10px;
+    font-family: 'Abel';
 }
