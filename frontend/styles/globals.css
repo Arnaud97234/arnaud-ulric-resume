@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Mr+Dafoe&family=Mrs+Saint+Delafield&family=Water+Brush&display=swap');
 
 @font-face {
-  font-family: Abel;
-  src: url("./fonts/webfontkit-Abel/abel-regular-webfont.woff");
+  font-family: "Abel";
+  src: url("./fonts/webfontkit-Abel/abel-regular-webfont.woff") format("woff");
 }
 :root {
   --color-1: #2596be;

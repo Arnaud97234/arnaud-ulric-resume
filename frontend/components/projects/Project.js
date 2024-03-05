@@ -25,7 +25,7 @@ function Project(props) {
 
     const techs = projects.techs.map((e, key) => {
         return (
-            <span className={styles.tech}>{e}</span>
+            <span className={styles.tech} key={key}>{e}</span>
         )
     })
 
