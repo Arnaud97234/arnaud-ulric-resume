@@ -1,3 +1,4 @@
+import { StyledEngineProvider } from '@mui/material/styles'
 import styles from '../styles/Home.module.css'
 import Skills from './home/Skills'
 import Description from './home/Description'
@@ -9,8 +10,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationArrow, faChevronRight } from '@fortawesome/fontawesome-free-solid'
-
-import { StyledEngineProvider } from '@mui/material/styles'
 
 function Home() {
     const router = useRouter()
