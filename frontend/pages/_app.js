@@ -17,9 +17,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-      <StyledEngineProvider injectFirst>
         <Component {...pageProps} />
-        </StyledEngineProvider>
       </Provider>
     </>
   )

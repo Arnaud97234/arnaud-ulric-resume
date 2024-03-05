@@ -25,6 +25,7 @@ function Home() {
     ]
 
     return (
+        <StyledEngineProvider injectFirst>
         <main className="main" id={styles.main}>
             <div className={styles.leftContainer}>
                 <Description />
@@ -67,6 +68,7 @@ function Home() {
                 <p><FontAwesomeIcon className={styles.icon} icon={faChevronRight} /><Link className={styles.link} href='https://expressjs.com/' target="_blank">ExpressJS</Link> / <Link className={styles.link} href='https://www.mongodb.com/' target="_blank">MongoDB</Link> for backend.</p>
             </div>
         </main>
+        </StyledEngineProvider>
     )
 }
 
