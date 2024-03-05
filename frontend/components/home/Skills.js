@@ -1,6 +1,5 @@
 import styles from '../../styles/Home.module.css'
 import React, { useEffect, useState } from 'react'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as brands from '@fortawesome/free-brands-svg-icons'
 import * as regular from '@fortawesome/free-solid-svg-icons'
