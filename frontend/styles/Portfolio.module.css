@@ -4,6 +4,10 @@
     justify-content: space-evenly;
 }
 
+#main * {
+    font-family: 'Abel';
+}
+
 .projectCard {
     width: 400px;
     margin-bottom: 50px;
@@ -31,4 +35,5 @@
 
 .projectBox a {
     margin-right: 10px;
+    font-family: 'Abel';
 }

@@ -15,7 +15,6 @@ function Resume() {
     const [diplomas, setDiplomas] = useState(null)
     const [technicals, setTechnicals] = useState(null)
     const [languages, setLanguages] = useState(null)
-    const [pdf, setPdf] = useState(null)
 
     const data = useSelector((state) => state.users.value)
 
@@ -24,13 +23,11 @@ function Resume() {
         setExperiences(data.experiences)
         setTechnicals(data.expertises)
         setLanguages(data.languages)
-        setPdf(data)
     }, [data])
     
     return (
         <main className='main' id={styles.main}>
             <div className={styles.leftContainer}>
-                {/* {pdf && <Pdf props={pdf} />} */}
                 {languages && <Languages props={languages} />}
                 {technicals && <Technicals props={technicals} />}
                 {diplomas && <Diplomas props={diplomas} />}

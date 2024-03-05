@@ -22,7 +22,6 @@
     font-weight: normal;
     align-self: center;
     cursor: pointer;
-    /* font-family: "Mr Dafoe", cursive; */
     font-family: "Aguafina Script", cursive;
     font-weight: normal;
 }
@@ -47,6 +46,10 @@
     align-items: center;
 }
 
+.userInfo * {
+    font-family: "EB Garamond";
+}
+
 .downloadBtn {
     background-color: var(--color-1);
     display: flex;
@@ -60,7 +63,6 @@
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 10px;
-    font-family: "EB Garamond";
 }
 
 .links {

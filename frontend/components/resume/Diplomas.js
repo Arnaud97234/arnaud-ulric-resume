@@ -17,9 +17,11 @@ function Diplomas(props) {
 
     return (
         <div className='container' id={styles.diplomasContainer}>
-            <h2 className='subTitle'>References</h2>
-            <div className={styles.box}>
-                {referencesList}
+            <div className='box'>
+                <h2 className='subTitle'>References</h2>
+                <div className={styles.box}>
+                    {referencesList}
+                </div>
             </div>
         </div>
     )
