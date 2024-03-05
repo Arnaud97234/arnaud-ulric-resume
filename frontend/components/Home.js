@@ -34,7 +34,6 @@ function Home() {
             <Divider style={{ margin: '0 40px' }} orientation='vertical' variant='middle' flexItem />
             <div className={styles.rightContainer}>
                 <div className={styles.navigation}>
-                <StyledEngineProvider injectFirst>
                     <ButtonGroup
                         className={styles.btnGroup}
                         orientation="vertical"
@@ -42,7 +41,6 @@ function Home() {
                         variant="text">
                         {buttons}
                     </ButtonGroup>
-                    </StyledEngineProvider>
                     <Image className={styles.userPicture} src='/userPicture.jpg' width={320} height={320} alt='user' priority={true}/>
                 </div>
                 <Divider component="div" textAlign='left' style={{paddingTop: "20px"}}>
