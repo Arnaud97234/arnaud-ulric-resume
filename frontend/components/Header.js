@@ -23,7 +23,7 @@ function Header() {
     }
     const [copied, setCopied] = useState(false)
     useEffect(() => {
-        fetch("https://arnaud-ulric-resume-backend.vercel.app/users/arnaud.ulric@gmail.com", {mode: 'no-cors', cache: "no-cache", headers: {"Content-Type": "application/json"}}).then(response => response.json()).then(data => {
+        fetch("https://arnaud-ulric-resume-backend.vercel.app/users/arnaud.ulric@gmail.com").then(response => response.json()).then(data => {
             addUser(data.user)
         })
     }, [])
