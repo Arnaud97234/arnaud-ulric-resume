@@ -21,12 +21,12 @@ function Header() {
     const addUser = (newUser) => {
         dispatch(addUserToStore(newUser))
     }
-    const [copied, setCopied] = useState(false)
     useEffect(() => {
         fetch("https://arnaud-ulric-resume-backend.vercel.app/users/arnaud.ulric@gmail.com").then(response => response.json()).then(data => {
             addUser(data.user)
         })
     }, [])
+    const [copied, setCopied] = useState(false)
 
     const user = useSelector((state) => state.users.value)
 
