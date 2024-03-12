@@ -3,6 +3,7 @@
 :root {
   --color-1: #2596be;
   --color-2: #36393b;
+  color-scheme: only light;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
   padding: 0 40px;
   min-width: 1000px;
   font-family: "Abel";
+  color-scheme: only light;
 }
 
 .main {
