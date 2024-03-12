@@ -8,6 +8,7 @@
     background-position: center;
     color: whitesmoke;
     z-index: 1;
+    color-scheme: only light;
 }
 
 .title {

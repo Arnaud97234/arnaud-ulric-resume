@@ -9,6 +9,7 @@
     align-items: center;
     color: whitesmoke;
     height: 1.7rem;
+    color-scheme: only light;
 }
 
 .signature {
