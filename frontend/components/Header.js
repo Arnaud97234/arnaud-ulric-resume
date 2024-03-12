@@ -11,8 +11,6 @@ import { addUserToStore } from "@/reducers/users"
 import Tooltip from '@mui/material/Tooltip'
 import Zoom from '@mui/material/Zoom'
 
-import { StyledEngineProvider } from '@mui/material/styles'
-
 function Header() {
     const router = useRouter()
 

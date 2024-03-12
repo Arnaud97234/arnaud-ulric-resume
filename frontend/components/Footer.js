@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIdBadge } from '@fortawesome/fontawesome-free-solid'
 
-import { StyledEngineProvider } from '@mui/material/styles'
-
 function Footer() {
 
     return (
