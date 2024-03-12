@@ -4,6 +4,11 @@
     width: 50%;
 }
 
+#introContainer {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
 .rightContainer {
     display: flex;
     flex-direction: column;
@@ -15,6 +20,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 40px;
+    padding-top: 20px;
 }
 
 .navigation {
@@ -56,13 +62,56 @@
     font-size: 16px;
 }
 
+.head {
+    display: flex;
+    flex-direction: 'raw';
+}
+
+
 .userPicture {
-    border-radius: 8px;
+    position: relative;
     margin-left: 40px;
     padding: 4px;
+    width: 320px;
+    height: 320px;    
+}
+
+.userPicture > img {
+    border-radius: 4px;
 }
 
 .btnGroup {
     margin-right: 40px;
     width: 145px;
 }
+
+.box {
+    margin-top: 60px;
+    padding-top: 60px;
+    padding-bottom: 90px;
+    margin-bottom: 90px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .userPicture {
+      width: 210px !important;
+      height: 210px !important;
+      margin-left: 10px !important;
+    }
+
+    .btnGroup {
+        margin-right: 10px !important;
+    }
+
+    .homeBtn {
+        font-size: 15px;
+    }
+
+    .divider {
+        margin: 0 20px !important;
+    }
+
+    .rightContainer h4 {
+        font-size: 20px !important;
+    }
+  }

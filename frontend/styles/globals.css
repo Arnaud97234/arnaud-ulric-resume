@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Aguafina+Script&family=Mr+Dafoe&family=Mrs+Saint+Delafield&family=Water+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Aguafina+Script&family=Mr+Dafoe&family=Mrs+Saint+Delafield&family=Press+Start+2P&family=Water+Brush&display=swap');
 
-/* @font-face {
-  font-family: "Abel";
-  src: url("./fonts/webfontkit-Abel/abel-regular-webfont.woff") format("woff");
-} */
 :root {
   --color-1: #2596be;
   --color-2: #36393b;
@@ -21,7 +17,6 @@ body {
   display: flex;
   height: 100%;
   background-color: whitesmoke;
-  padding: 10px;
   color: var(--color-2);
   padding: 30px 50px;
 }
@@ -80,4 +75,26 @@ span {
 a {
   text-decoration: none;
   color: var(--color-2);
+}
+
+
+/* mobile responsive */
+
+@media only screen and (max-width: 1500px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+@media only screen and (max-width: 1300px) {
+  p {
+    font-size: 1.25rem;
+  }
+
+  .main {
+    padding: 12px 20px;
+  }
+  
 }
