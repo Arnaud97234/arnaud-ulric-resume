@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Aguafina+Script&family=Mr+Dafoe&family=Mrs+Saint+Delafield&family=Press+Start+2P&family=Water+Brush&display=swap');
 
-@media (forced-colors: active) {
+@media (prefers-color-scheme: active) {
   :root {
       color-scheme: light;
   }
