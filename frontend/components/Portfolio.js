@@ -12,13 +12,16 @@ function Portfolio() {
 
 	const [projects, setProjects] = useState([])
 	const projectsStored = useSelector((state) => state.projects.value)
+
 	useEffect(() => {
-		fetch('https://arnaud-ulric-resume-backend.vercel.app/projects')
-			.then((response) => response.json())
-			.then((data) => {
-				addProject(data.projects)
-			})
-	}, [])
+		if (!projectsStored[0].name) {
+			fetch('https://arnaud-ulric-resume-backend.vercel.app/projects')
+				.then((response) => response.json())
+				.then((data) => {
+					addProject(data.projects)
+				})
+		}
+	}, [dispatch])
 
 	useEffect(() => {
 		setProjects(projectsStored)

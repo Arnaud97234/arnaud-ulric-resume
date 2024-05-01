@@ -15,15 +15,17 @@ function Resume() {
 		dispatch(addResumeToStore(newResume))
 	}
 
-	const resumeStrored = useSelector((state) => state.resume.value)
+	const resumeStrored = useSelector((state) => state.resume.value.experiences)
 
 	useEffect(() => {
-		fetch('https://arnaud-ulric-resume-backend.vercel.app/experience')
-			.then((response) => response.json())
-			.then((data) => {
-				addResume(data)
-			})
-	}, [])
+		if (!resumeStrored || resumeStrored.length === 0) {
+			fetch('https://arnaud-ulric-resume-backend.vercel.app/experience')
+				.then((response) => response.json())
+				.then((data) => {
+					addResume(data)
+				})
+		}
+	}, [resumeStrored, dispatch])
 
 	return (
 		<main className="main" id={styles.main}>

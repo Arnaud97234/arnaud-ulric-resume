@@ -26,15 +26,17 @@ function Home() {
 		dispatch(addIntroToStore(newIntro))
 	}
 
-	const introStored = useSelector((state) => state.intro.value)
+	const introStored = useSelector((state) => state.intro.value.desc)
 
 	useEffect(() => {
-		fetch('https://arnaud-ulric-resume-backend.vercel.app/intro')
-			.then((response) => response.json())
-			.then((data) => {
-				addIntro(data.intro[0])
-			})
-	}, [])
+		if (introStored.length === 0) {
+			fetch('https://arnaud-ulric-resume-backend.vercel.app/intro')
+				.then((response) => response.json())
+				.then((data) => {
+					addIntro(data.intro[0])
+				})
+		}
+	}, [introStored, dispatch])
 
 	const buttons = [
 		<Button

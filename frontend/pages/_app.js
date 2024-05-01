@@ -10,6 +10,8 @@ import profile from '@/reducers/profile'
 import intro from '@/reducers/intro'
 import resume from '@/reducers/resume'
 import projects from '@/reducers/projects'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const reducers = combineReducers({ profile, intro, resume, projects })
 

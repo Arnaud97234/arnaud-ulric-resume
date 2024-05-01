@@ -27,7 +27,7 @@ function Header() {
 	}
 
 	const [copied, setCopied] = useState(false)
-	const [profile, setProfile] = useState(false)
+	const [profile, setProfile] = useState({})
 	const profileStored = useSelector((state) => state.profile.value)
 
 	useEffect(() => {
@@ -43,7 +43,7 @@ function Header() {
 	}, [profileStored])
 
 	const links =
-		profile &&
+		profile.name &&
 		profile.links.map((e, key) => {
 			let icon = brands[e.icon]
 
