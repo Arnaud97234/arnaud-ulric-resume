@@ -4,25 +4,29 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
-import users from '../reducers/users'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+
+import profile from '@/reducers/profile'
+import intro from '@/reducers/intro'
+import resume from '@/reducers/resume'
+import projects from '@/reducers/projects'
+
+const reducers = combineReducers({ profile, intro, resume, projects })
 
 const store = configureStore({
-  reducer: { users },
+	reducer: reducers
 })
 
 config.autoAddCss = false
 
-
 function App({ Component, pageProps }) {
-
-  return (
-      <Provider store={store}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </Provider>
-  )
+	return (
+		<Provider store={store}>
+			<Header />
+			<Component {...pageProps} />
+			<Footer />
+		</Provider>
+	)
 }
 
 export default App

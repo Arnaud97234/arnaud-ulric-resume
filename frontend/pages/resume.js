@@ -1,11 +1,11 @@
 import Resume from '../components/Resume'
 
 function ResumePage() {
-    return (
-        <>
-            <Resume />
-        </>
-    )
+	return (
+		<>
+			<Resume />
+		</>
+	)
 }
 
 export default ResumePage
