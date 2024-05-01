@@ -74,7 +74,7 @@ function Header() {
 
 		return (
 			<Tooltip
-				title="Copy email"
+				title={copied ? 'email Copied' : 'Copy email'}
 				TransitionComponent={Zoom}
 				placement="top"
 				arrow
