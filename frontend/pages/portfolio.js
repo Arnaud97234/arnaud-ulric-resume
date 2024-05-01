@@ -1,11 +1,11 @@
 import Portfolio from '../components/Portfolio'
 
 function PortfolioPage() {
-    return (
-        <>
-            <Portfolio />
-        </>
-    )
+	return (
+		<>
+			<Portfolio />
+		</>
+	)
 }
 
 export default PortfolioPage

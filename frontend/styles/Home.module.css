@@ -71,9 +71,7 @@
 .userPicture {
     position: relative;
     margin-left: 40px;
-    padding: 4px;
-    width: 320px;
-    height: 320px;    
+    padding: 4px; 
 }
 
 .userPicture > img {
