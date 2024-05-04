@@ -1,21 +1,14 @@
 import styles from '../styles/Header.module.css'
 import React, { useState, useEffect } from 'react'
-//import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as brands from '@fortawesome/free-brands-svg-icons'
-import {
-	faPaperPlane,
-	faDownload,
-	faCheck
-} from '@fortawesome/fontawesome-free-solid'
+import { faPaperPlane, faCheck } from '@fortawesome/fontawesome-free-solid'
 import { useRouter } from 'next/router'
 import Button from '@mui/material/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProfileToStore } from '@/reducers/profile'
-
 import Tooltip from '@mui/material/Tooltip'
 import Zoom from '@mui/material/Zoom'
-
 import { StyledEngineProvider } from '@mui/material/styles'
 
 function Header() {
@@ -96,28 +89,6 @@ function Header() {
 		)
 	}
 
-	const downloadPdfBtn = () => {
-		return (
-			<Tooltip
-				title="Download resume"
-				TransitionComponent={Zoom}
-				placement="top"
-				arrow
-			>
-				<Button
-					variant="outlined"
-					className={styles.linkItem}
-					href="/arnaud-ulric-resume.pdf"
-					download="arnaud-ulric-resume.pdf"
-				>
-					<span>
-						<FontAwesomeIcon icon={faDownload} />
-					</span>
-				</Button>
-			</Tooltip>
-		)
-	}
-
 	return (
 		<div className={styles.header}>
 			<div className={styles.user}>
@@ -138,7 +109,6 @@ function Header() {
 				<div className={styles.links}>
 					{links}
 					{copyToClipboardButton()}
-					{downloadPdfBtn()}
 				</div>
 			</StyledEngineProvider>
 		</div>
