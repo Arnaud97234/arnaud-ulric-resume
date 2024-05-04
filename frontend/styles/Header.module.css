@@ -78,6 +78,11 @@
     border-color: whitesmoke;
 }
 
+.linkItem:hover {
+    color: var(--color-1);
+    border-color: var(--color-1);
+}
+
 .linkItem > svg {
     vertical-align: middle;
 }

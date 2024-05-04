@@ -60,11 +60,12 @@ function Resume() {
 				arrow
 			>
 				<Button
-					className={styles.linkItem}
+					className={styles.downloadButton}
 					variant="outlined"
 					onClick={downloadPdf}
 				>
 					<FontAwesomeIcon icon={faDownload} />
+					<span>.pdf</span>
 				</Button>
 			</Tooltip>
 		)

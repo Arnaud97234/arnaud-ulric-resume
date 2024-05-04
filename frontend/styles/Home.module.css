@@ -1,4 +1,5 @@
 .leftContainer {
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -9,7 +10,12 @@
     margin-bottom: 40px;
 }
 
+#introContainer p, .box p {
+    margin: 2px 0;
+}
+
 .rightContainer {
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
     width: 50%;
