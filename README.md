@@ -30,5 +30,4 @@ cd frontend
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser
-If backend is already running on `:3000` switch to `:3001`:3001
+Open [http://localhost:3001](http://localhost:3001) with your browser (If backend arlready running on `:3000`)
