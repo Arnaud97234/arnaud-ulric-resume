@@ -21,7 +21,7 @@ yarn start
 nodemon
 ```
 
-Run by default on [http://localhost:3000] (http://localhost:3000)
+Run by default on [http://localhost:3000](http://localhost:3000)
 
 Start frontend:
 
