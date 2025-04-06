@@ -4,16 +4,9 @@ import ProgressBar from './ProgressBar'
 import { useSelector } from 'react-redux'
 
 function Technicals() {
-	const [techs, setTechs] = useState([])
-	const [tools, setTools] = useState([])
 	const data = useSelector((state) => state.resume.value.expertises[0])
 
-	useEffect(() => {
-		setTechs(data.techs)
-		setTools(data.tools)
-	}, [data.techs, data.tools])
-
-	const techsList = techs.map((e, key) => {
+	const techsList = data?.techs.map((e, key) => {
 		return (
 			<ProgressBar
 				className={styles.item}
@@ -24,7 +17,7 @@ function Technicals() {
 		)
 	})
 
-	const toolsList = tools.map((e, key) => {
+	const toolsList = data?.tools.map((e, key) => {
 		return (
 			<ProgressBar
 				className={styles.item}

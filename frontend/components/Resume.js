@@ -26,28 +26,29 @@ function Resume() {
 		dispatch(addResumeToStore(newResume))
 	}
 
-	const resumeStrored = useSelector((state) => state.resume.value)
+	const resumeStored = useSelector((state) => state.resume.value)
 
 	useEffect(() => {
 		if (
-			!resumeStrored.experiences ||
-			resumeStrored.experiences.length === 1 
+			!resumeStored.experiences ||
+			resumeStored.experiences.length === 1 
 		) {
 			// fetch('http://localhost:3000/experience')
 			fetch('https://arnaud-ulric-resume-backend.vercel.app/experience')
 				.then((response) => response.json())
 				.then((data) => {
-					addResume(data)
+					const sortedData = {...data, experiences: [...data.experiences].sort((a, b) => new Date(b.startDate) - new Date(a.startDate))} 
+					addResume(sortedData)
 				})
 		}
-	}, [resumeStrored.length > 1 ,dispatch])
+	}, [resumeStored ,dispatch])
 
 	const profileData = useSelector((state) => state.profile.value)
 
 	const downloadPdf = async () => {
 		const fileName = 'ArnaudUlric-QaEngineer.pdf'
 		const blob = await pdf(
-			<PdfDocument profile={profileData} resume={resumeStrored} />
+			<PdfDocument profile={profileData} resume={resumeStored} />
 		).toBlob()
 		saveAs(blob, fileName)
 	}
