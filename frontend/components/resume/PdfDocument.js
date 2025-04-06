@@ -128,8 +128,7 @@ function PdfDocument(props) {
 					>
 						<Text style={styles.experiencetitle}>{experience.title}</Text>
 						<Text style={styles.duration}>
-							{formatDate(experience.startDate)} - {formatDate(experience.endDate)}
-							{formatDuration(experience.startDate, formatedEndDate)}
+							{formatDate(experience.startDate)} - {formatDate(experience.endDate)} ({formatDuration(experience.startDate, formatedEndDate)})
 						</Text>
 					</View>
 					<Text style={styles.company}>{companyName}</Text>
