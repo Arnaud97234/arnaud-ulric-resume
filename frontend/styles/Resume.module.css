@@ -77,8 +77,9 @@
     padding: 0 10px 0 6px;
 }
 
-.expDesc p {
+.expDesc pre {
     font-size: 1.175rem;
+    font-family: 'Abel';
 }
 
 .expTechs {
