@@ -30,6 +30,7 @@ function Home() {
 
 	useEffect(() => {
 		if (introStored.length === 0) {
+			// fetch('http://localhost:3000/intro')
 			fetch('https://arnaud-ulric-resume-backend.vercel.app/intro')
 				.then((response) => response.json())
 				.then((data) => {

@@ -1,14 +1,19 @@
 const mongoose = require('mongoose')
 
-const experienceSchema = mongoose.Schema({
+const companySchema = mongoose.Schema({
+    name: String,
+    link: String
+})
+
+const ExperienceSchema = mongoose.Schema({
     title: String,
-    company: String,
+    company: companySchema,
     desc: Array,
     startDate: Date,
     endDate: Date,
     techs: Array
 })
 
-const Experience = mongoose.model('experiences', experienceSchema)
+const Experience = mongoose.model('experiences', ExperienceSchema)
 
 module.exports = Experience
