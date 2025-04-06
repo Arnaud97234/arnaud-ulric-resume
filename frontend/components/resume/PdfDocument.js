@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
 	Page,
 	Text,
@@ -8,6 +8,8 @@ import {
 	Document,
 	StyleSheet
 } from '@react-pdf/renderer'
+import { formatDate, formatDuration } from './utils/utils'
+
 
 function PdfDocument(props) {
 	const styles = StyleSheet.create({
@@ -104,45 +106,35 @@ function PdfDocument(props) {
 	const profile = props.profile
 	const resume = props.resume
 
-	let experiences = resume.experiences.map((e, key) => {
-		let startMonth = new Date(e.startDate)
-		startMonth = startMonth.getMonth()
-		let startYear = new Date(e.startDate)
-		startYear = startYear.getFullYear()
-		let endMonth = new Date(e.endDate)
-		endMonth = endMonth.getMonth()
-		let endYear = new Date(e.endDate)
-		endYear = endYear.getFullYear()
-
-		let duration = new Date(e.endDate) - new Date(e.startDate)
-		duration = Math.round(duration / (1000 * 3600 * 24 * 30.5 * 12))
-
-		let formatedDesc = e.desc.map((e, key) => {
+	let experiences = resume.experiences.map((experience, key) => {
+		let formatedDesc = experience.desc.map((e, key) => {
 			return (
 				<Text style={styles.formatedDesc} key={key}>
 					{e}
 				</Text>
 			)
 		})
+		let formatedEndDate = experience.endDate ? experience.endDate : new Date()
+		let companyName = experience.company.name
 
 		return (
 			<View style={styles.experience} key={key}>
-				<div style={styles.head}>
-					<div
+				<View style={styles.head}>
+					<View
 						style={[
 							{ flexDirection: 'row' },
 							{ alignItems: 'center' }
 						]}
 					>
-						<Text style={styles.experiencetitle}>{e.title}</Text>
+						<Text style={styles.experiencetitle}>{experience.title}</Text>
 						<Text style={styles.duration}>
-							{startMonth}/{startYear} - {endMonth}/{endYear} (
-							{duration} years)
+							{formatDate(experience.startDate)} - {formatDate(experience.endDate)}
+							{formatDuration(experience.startDate, formatedEndDate)}
 						</Text>
-					</div>
-					<Text style={styles.company}>{e.company}</Text>
-				</div>
-				<div style={styles.desc}>{formatedDesc}</div>
+					</View>
+					<Text style={styles.company}>{companyName}</Text>
+				</View>
+				<View style={styles.desc}>{formatedDesc}</View>
 			</View>
 		)
 	})
@@ -165,22 +157,22 @@ function PdfDocument(props) {
 
 	const references = resume.diplomas.map((e, key) => {
 		return (
-			<div style={styles.diploma} key={key}>
+			<View style={styles.diploma} key={key}>
 				<Text style={styles.refTitle}>{e.title}</Text>
-			</div>
+			</View>
 		)
 	})
 
 	return (
 		<Document style={styles.main}>
 			<Page style={styles.page}>
-				<div style={styles.left}>
+				<View style={styles.left}>
 					<View style={styles.leftBox}>
 						<Text style={styles.name}>{profile.name}</Text>
 						<Text style={styles.title}>{profile.title}</Text>
 						<Text style={styles.subTitle}>{profile.subTitle}</Text>
 					</View>
-					<span style={styles.separator}></span>
+					<View style={styles.separator}></View>
 					<View style={styles.leftBox}>
 						<Text style={styles.secondaryTitle}>Contact me</Text>
 						<Text style={styles.leftItem}>{profile.email}</Text>
@@ -191,7 +183,7 @@ function PdfDocument(props) {
 							myWebsite.url
 						</Link>
 					</View>
-					<span style={styles.separator}></span>
+					<View style={styles.separator}></View>
 					<View style={styles.leftBox}>
 						<Text style={styles.secondaryTitle}>Skills</Text>
 						{techs}
@@ -205,18 +197,18 @@ function PdfDocument(props) {
 						</Text>
 						{tools}
 					</View>
-					<span style={styles.separator}></span>
+					<View style={styles.separator}></View>
 					<View style={styles.leftBox}>
 						<Text style={styles.secondaryTitle}>Diplomas</Text>
 						{references}
 					</View>
-				</div>
-				<div style={styles.right}>
+				</View>
+				<View style={styles.right}>
 					<View style={styles.experiences}>
 						<Text style={styles.secondaryTitle}>Experience</Text>
 						{experiences}
 					</View>
-				</div>
+				</View>
 			</Page>
 		</Document>
 	)
