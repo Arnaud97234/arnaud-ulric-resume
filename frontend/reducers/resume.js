@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	value: {
-		experience: [
+		experiences: [
 			{
 				title: '',
-				company: '',
+				company: { name: '', link: '' },
 				desc: [],
 				startDate: '',
 				endDate: '',

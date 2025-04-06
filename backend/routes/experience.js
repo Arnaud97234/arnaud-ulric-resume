@@ -10,8 +10,7 @@ router.get("/", async function (req, res) {
   const experiences = await Experiences.find();
   const expertises = await Expertises.find();
   const diplomas = await Diplomas.find();
-
-  res.json({ experiences, expertises, diplomas });
+  res.json({ experiences, expertises, diplomas});
 });
 
 module.exports = router;

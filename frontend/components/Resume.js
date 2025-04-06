@@ -31,15 +31,16 @@ function Resume() {
 	useEffect(() => {
 		if (
 			!resumeStrored.experiences ||
-			resumeStrored.experiences.length === 0
+			resumeStrored.experiences.length === 1 
 		) {
+			// fetch('http://localhost:3000/experience')
 			fetch('https://arnaud-ulric-resume-backend.vercel.app/experience')
 				.then((response) => response.json())
 				.then((data) => {
 					addResume(data)
 				})
 		}
-	}, [resumeStrored, dispatch])
+	}, [resumeStrored.length > 1 ,dispatch])
 
 	const profileData = useSelector((state) => state.profile.value)
 

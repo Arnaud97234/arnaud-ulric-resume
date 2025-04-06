@@ -20,24 +20,22 @@ function Header() {
 	}
 
 	const [copied, setCopied] = useState(false)
-	const [profile, setProfile] = useState({})
 	const profileStored = useSelector((state) => state.profile.value)
 
 	useEffect(() => {
-		fetch('https://arnaud-ulric-resume-backend.vercel.app/profile')
-			.then((response) => response.json())
-			.then((data) => {
+		if(!profileStored.name) {
+			// fetch('http://localhost:3000/profile')
+			fetch('https://arnaud-ulric-resume-backend.vercel.app/profile')
+				.then((response) => response.json())
+				.then((data) => {
 				addProfile(data.profile[0])
 			})
-	}, [])
-
-	useEffect(() => {
-		setProfile(profileStored)
+		}
 	}, [profileStored])
 
 	const links =
-		profile.name &&
-		profile.links.map((e, key) => {
+		profileStored.name &&
+		profileStored.links.map((e, key) => {
 			let icon = brands[e.icon]
 
 			return (
@@ -98,11 +96,11 @@ function Header() {
 						router.push('/')
 					}}
 				>
-					{profile.name}
+					{profileStored.name}
 				</h2>
 				<div className={styles.userInfo}>
-					<h1 className={styles.title}>{profile.title}</h1>
-					<h3 className={styles.subTitle}>{profile.subTitle}</h3>
+					<h1 className={styles.title}>{profileStored.title}</h1>
+					<h3 className={styles.subTitle}>{profileStored.subTitle}</h3>
 				</div>
 			</div>
 			<StyledEngineProvider injectFirst>

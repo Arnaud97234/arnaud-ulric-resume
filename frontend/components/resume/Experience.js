@@ -7,33 +7,58 @@ import Tooltip from '@mui/material/Tooltip'
 import Divider from '@mui/material/Divider'
 import Zoom from '@mui/material/Zoom'
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { Link } from '@mui/material'
 
 function Experience() {
-	const [experience, setExperience] = useState([])
-	const data = useSelector((state) => state.resume.value.experiences)
+	const experience = useSelector((state) => state.resume.value.experiences)
 
-	useEffect(() => {
-		setExperience(data)
-	}, [data])
-
+	const formatDuration = (start, end) => {
+		const startDate = new Date(start);
+		const endDate = new Date(end);
+	  
+		let years = endDate.getFullYear() - startDate.getFullYear();
+		let months = endDate.getMonth() - startDate.getMonth();
+	  
+		if (months < 0) {
+		  years--;
+		  months += 12;
+		}
+	  
+		// Round up year if months > 9
+		if (months > 9) {
+		  years += 1;
+		  months = 0;
+		}
+	  
+		// Output logic
+		if (years > 0 && months === 0) {
+		  return `${years} year${years > 1 ? 's' : ''}`;
+		} else if (years > 0) {
+		  return `${years} year${years > 1 ? 's' : ''} ${months} month${months > 1 ? 's' : ''}`;
+		} else {
+		  return `${months} month${months > 1 ? 's' : ''}`;
+		}
+	}  
+	const formatDate = (date) => {
+		if(date != null) {
+			const d = new Date(date);
+			const month = d.getMonth() + 1; // JS months are 0-based
+			const year = d.getFullYear();
+			return `${month}/${year}`;
+		} else {
+			return "today"
+		}
+	};
 	const experienceList =
-		experience &&
-		experience.map((e, key) => {
-			let startMonth = new Date(e.startDate)
-			startMonth = startMonth.getMonth()
-			let startYear = new Date(e.startDate)
-			startYear = startYear.getFullYear()
-			let endMonth = new Date(e.endDate)
-			endMonth = endMonth.getMonth()
-			let endYear = new Date(e.endDate)
-			endYear = endYear.getFullYear()
+	experience && [...experience]
+    .sort((a, b) => new Date(b.startDate) - new Date(a.startDate)) // <-- sort DESC by startDate
+    .map((e, key) => {
+			let formatedEndDate = e.endDate ? e.endDate : new Date()
 
-			let duration = new Date(e.endDate) - new Date(e.startDate)
-			duration = Math.round(duration / (1000 * 3600 * 24 * 30.5 * 12))
+			let duration = formatDuration(e.startDate, formatedEndDate)
 
 			let formatedDesc = e.desc.map((e, key) => {
-				return <p key={key}>{e}</p>
+				return <pre style={{ whiteSpace: 'pre-wrap' }} key={key}>{e}</pre>
 			})
 
 			let techsList = e.techs.map((e, key) => {
@@ -72,10 +97,21 @@ function Experience() {
 									icon={faLocationArrow}
 									style={{ marginRight: '15px' }}
 								/>
-								<h4 className={styles.company}>{e.company}</h4>
+								
+								{e.company.link ? (
+								<Link
+									href={e.company.link}
+									target="_blank"
+									rel="noreferrer"
+									style={{ all: 'unset', cursor: 'pointer' }}
+								>
+									<h4 className={styles.company}>{e.company.name}</h4>
+								</Link>
+								) : (
+								<h4 className={styles.company}>{e.company.name}</h4>
+								)}
 								<span className={styles.duration}>
-									{startMonth}/{startYear} - {endMonth}/
-									{endYear} ({duration} years)
+									{ `${formatDate(e.startDate)} - ${formatDate(e.endDate)} (${duration})`}
 								</span>
 							</div>
 						</Divider>
