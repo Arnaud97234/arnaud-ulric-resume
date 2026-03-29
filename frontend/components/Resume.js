@@ -2,7 +2,7 @@
 import styles from '../styles/Resume.module.css'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import resume, { addResumeToStore } from '@/reducers/resume'
+import { addResumeToStore } from '@/reducers/resume'
 import Experience from './resume/Experience'
 import Technicals from './resume/Technicals'
 import PdfDocument from './resume/PdfDocument'
@@ -28,13 +28,14 @@ function Resume() {
 
 	const resumeStored = useSelector((state) => state.resume.value)
 
+	// const url = process.env.DEV ? 'http://localhost:3000/experience' : 'https://arnaud-ulric-resume-backend.vercel.app/experience'
+	const url = 'https://arnaud-ulric-resume-backend.vercel.app/experience'
 	useEffect(() => {
 		if (
 			!resumeStored.experiences ||
 			resumeStored.experiences.length === 1 
 		) {
-			// fetch('http://localhost:3000/experience')
-			fetch('https://arnaud-ulric-resume-backend.vercel.app/experience')
+			fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
 					const sortedData = {...data, experiences: [...data.experiences].sort((a, b) => new Date(b.startDate) - new Date(a.startDate))} 

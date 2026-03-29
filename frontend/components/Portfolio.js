@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProjectsToStore } from '@/reducers/projects'
 import Project from './projects/Project'
+
 function Portfolio() {
 	const dispatch = useDispatch()
 
@@ -12,10 +13,11 @@ function Portfolio() {
 
 	const projectsStored = useSelector((state) => state.projects.value)
 
+	// const url = process.env.DEV ? 'http://localhost:3000/projects' : 'https://arnaud-ulric-resume-backend.vercel.app/projects'
+	const url = 'https://arnaud-ulric-resume-backend.vercel.app/projects'
 	useEffect(() => {
 		if (!projectsStored[0].name) {
-			// fetch('http://localhost:3000/projects')
-			fetch('https://arnaud-ulric-resume-backend.vercel.app/projects')
+			fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
 					addProject(data.projects)

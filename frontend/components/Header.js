@@ -22,10 +22,11 @@ function Header() {
 	const [copied, setCopied] = useState(false)
 	const profileStored = useSelector((state) => state.profile.value)
 
+	// const url = process.env.DEV ? 'http://localhost:3000/profile' : 'https://arnaud-ulric-resume-backend.vercel.app/profile'
+	const url = 'https://arnaud-ulric-resume-backend.vercel.app/profile'
 	useEffect(() => {
 		if(!profileStored.name) {
-			// fetch('http://localhost:3000/profile')
-			fetch('https://arnaud-ulric-resume-backend.vercel.app/profile')
+			fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
 				addProfile(data.profile[0])

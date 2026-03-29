@@ -75,9 +75,13 @@
 .expDesc {
     margin: 0 10px 0 6px;
     padding: 0 10px 0 6px;
+    font-size: 1.175rem;
+    font-family: 'Abel';
 }
 
-.expDesc pre {
+.expAchievements {
+    margin: 0 10px 0 6px;
+    padding: 0 10px 0 6px;
     font-size: 1.175rem;
     font-family: 'Abel';
 }

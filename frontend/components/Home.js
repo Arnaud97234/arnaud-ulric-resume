@@ -28,10 +28,11 @@ function Home() {
 
 	const introStored = useSelector((state) => state.intro.value.desc)
 
+	// const url = process.env.DEV ? 'http://localhost:3000/intro' : 'https://arnaud-ulric-resume-backend.vercel.app/intro'
+	const url = 'https://arnaud-ulric-resume-backend.vercel.app/intro'
 	useEffect(() => {
 		if (introStored.length === 0) {
-			// fetch('http://localhost:3000/intro')
-			fetch('https://arnaud-ulric-resume-backend.vercel.app/intro')
+			fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
 					addIntro(data.intro[0])

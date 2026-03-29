@@ -7,6 +7,7 @@ const initialState = {
 				title: '',
 				company: { name: '', link: '' },
 				desc: [],
+				achievements: [],
 				startDate: '',
 				endDate: '',
 				techs: [
