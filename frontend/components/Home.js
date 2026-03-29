@@ -180,8 +180,17 @@ function Home() {
 							href="https://appium.io/docs/en/2.4/"
 							target="_blank"
 						>
-							Appium.
-						</Link>
+							Appium
+						</Link>{' '}
+						and{' '}
+						<Link
+						className={styles.link}
+						href="https://maestro.dev/"
+						target="_blank"
+						>
+							Maestro
+						</Link>{' '}
+						that is very efficient thanks to it's quick setup and ease of integration and execution.
 					</p>
 					<p>
 						<FontAwesomeIcon
@@ -195,7 +204,7 @@ function Home() {
 						>
 							Postman
 						</Link>{' '}
-						is an indispensable tool for API testing but for smaller
+						is an indispensable tool for Rest API testing but for smaller
 						projects, I prefer{' '}
 						<Link
 							className={styles.link}
@@ -203,7 +212,22 @@ function Home() {
 							target="_blank"
 						>
 							Insomnia.
-						</Link>
+						</Link><br />
+						<Link className={styles.link}
+							href="https://pactumjs.github.io/"
+							target="_blank"
+						>
+							PactumJS
+						</Link>{' '}
+						is what I currently use for test automation along with{' '}
+						<Link
+							className={styles.link}
+							href="https://jestjs.io/"
+							target="_blank"
+							>
+								Jest
+						</Link>{' '}
+						  for execution.
 					</p>
 					<p>
 						<FontAwesomeIcon

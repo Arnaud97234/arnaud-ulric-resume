@@ -8,89 +8,151 @@ import Divider from '@mui/material/Divider'
 import Zoom from '@mui/material/Zoom'
 import { useSelector } from 'react-redux'
 import { Link } from '@mui/material'
+import { useMemo } from 'react'
 import { formatDate, formatDuration } from './utils/utils'
 
 function Experience() {
-	const experience = useSelector((state) => state.resume.value.experiences)
+  const experience = useSelector((state) => state.resume.value.experiences)
 
-	const experienceList =
-	experience && [...experience]
-    .map((e, key) => {
-			let formatedEndDate = e.endDate ? e.endDate : new Date()
+  // ✅ Group experiences by company
+  const groupedExperiences = useMemo(() => {
+    return Object.values(
+      (experience || []).reduce((acc, exp) => {
+        const key = exp.company.name
 
-			let duration = formatDuration(e.startDate, formatedEndDate)
+        if (!acc[key]) {
+          acc[key] = {
+            company: {
+              name: exp.company.name,
+              link: exp.company.link,
+              startDate: exp.startDate,
+              endDate: exp.endDate || new Date().toISOString(),
+              experiences: []
+            }
+          }
+        }
 
-			let formatedDesc = e.desc.map((e, key) => {
-				return <pre style={{ whiteSpace: 'pre-wrap' }} key={key}>{e}</pre>
-			})
+        const group = acc[key].company
+        const expEnd = exp.endDate || new Date().toISOString()
 
-			let techsList = e.techs.map((e, key) => {
-				let iconSource
-				if (brands[e.icon]) {
-					iconSource = brands
-				} else {
-					iconSource = regular
-				}
-				return (
-					<Tooltip
-						TransitionComponent={Zoom}
-						className={styles.expTechsItem}
-						key={key}
-						title={e.name}
-						arrow
-					>
-						<FontAwesomeIcon icon={iconSource[e.icon]} />
-					</Tooltip>
-				)
-			})
+        // min startDate
+        if (new Date(exp.startDate) < new Date(group.startDate)) {
+          group.startDate = exp.startDate
+        }
 
-			return (
-				<div className="box" key={key} id={styles.experienceBox}>
-					<div className={styles.expTitle}>
-						<Divider component="div" textAlign="left">
-							<div
-								style={{
-									display: 'flex',
-									flexDirection: 'row',
-									alignItems: 'center',
-									margin: '10px 0px'
-								}}
-							>
-								<FontAwesomeIcon
-									icon={faLocationArrow}
-									style={{ marginRight: '15px' }}
-								/>
-								
-								{e.company.link ? (
-								<Link
-									href={e.company.link}
-									target="_blank"
-									rel="noreferrer"
-									style={{ all: 'unset', cursor: 'pointer' }}
-								>
-									<h4 className={styles.company}>{e.company.name}</h4>
-								</Link>
-								) : (
-								<h4 className={styles.company}>{e.company.name}</h4>
-								)}
-								<span className={styles.duration}>
-									{ `${formatDate(e.startDate)} - ${formatDate(e.endDate)} (${duration})`}
-								</span>
-							</div>
-						</Divider>
-						<h3 className={styles.title}>{e.title}</h3>
-					</div>
-					<div className={styles.expDesc}>{formatedDesc}</div>
-					<div className={styles.expTechs}>{techsList}</div>
-				</div>
-			)
-		})
+        // max endDate
+        if (new Date(expEnd) > new Date(group.endDate)) {
+          group.endDate = expEnd
+        }
 
-	return (
-		<div className="container" id={styles.experiencesContainer}>
-			{experienceList}
-		</div>
-	)
+        group.experiences.push({
+          ...exp,
+          endDate: expEnd
+        })
+
+        return acc
+      }, {})
+    ).map((group) => {
+      // sort experiences (latest first)
+      group.company.experiences.sort(
+        (a, b) => new Date(b.startDate) - new Date(a.startDate)
+      )
+      return group
+    })
+  }, [experience])
+
+  const experienceList = groupedExperiences.map(({ company: c }) => {
+    const companyDuration = formatDuration(
+      c.startDate,
+      c.endDate || new Date()
+    )
+
+    return (
+      <div className="box" key={c.name} id={styles.experienceBox}>
+        
+        {/* COMPANY HEADER */}
+        <div className={styles.expTitle}>
+          <Divider component="div" textAlign="left">
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                margin: '10px 0px'
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faLocationArrow}
+                style={{ marginRight: '15px' }}
+              />
+
+              {c.link ? (
+                <Link
+                  href={c.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ all: 'unset', cursor: 'pointer' }}
+                >
+                  <h4 className={styles.company}>{c.name}</h4>
+                </Link>
+              ) : (
+                <h4 className={styles.company}>{c.name}</h4>
+              )}
+
+              <span className={styles.duration}>
+                {`${formatDate(c.startDate)} - ${formatDate(c.endDate)} (${companyDuration})`}
+              </span>
+            </div>
+          </Divider>
+        </div>
+
+        {/* EXPERIENCES */}
+        {c.experiences.map((e) => {
+          const duration = formatDuration(e.startDate, e.endDate)
+
+          const formattedDesc = e.desc.map((d, i) => (
+            <pre key={i} style={{ whiteSpace: 'pre-wrap' }}>
+              {d}
+            </pre>
+          ))
+
+          const techsList = e.techs.map((t, i) => {
+            const iconSource = brands[t.icon] ? brands : regular
+
+            return (
+              <Tooltip
+                key={i}
+                TransitionComponent={Zoom}
+                className={styles.expTechsItem}
+                title={t.name}
+                arrow
+              >
+                <FontAwesomeIcon icon={iconSource[t.icon]} />
+              </Tooltip>
+            )
+          })
+
+          return (
+            <div key={e._id || e.title + e.startDate} style={{ marginTop: '15px' }}>
+              <h3 className={styles.title}>{e.title}</h3>
+
+              <span className={styles.duration}>
+                {`${formatDate(e.startDate)} - ${formatDate(e.endDate)} (${duration})`}
+              </span>
+
+              <div className={styles.expDesc}>{formattedDesc}</div>
+              <div className={styles.expTechs}>{techsList}</div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  })
+
+  return (
+    <div className="container" id={styles.experiencesContainer}>
+      {experienceList}
+    </div>
+  )
 }
 
 export default Experience
