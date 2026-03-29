@@ -57,7 +57,7 @@ function Header() {
 	const copyToClipboardButton = () => {
 		const handleClick = () => {
 			setCopied(true)
-			navigator.clipboard.writeText(profile.email)
+			navigator.clipboard.writeText(profileStored.email)
 			setTimeout(() => {
 				setCopied(false)
 			}, 2000)
