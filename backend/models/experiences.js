@@ -9,6 +9,7 @@ const ExperienceSchema = mongoose.Schema({
     title: String,
     company: companySchema,
     desc: Array,
+    achievements: Array,
     startDate: Date,
     endDate: Date,
     techs: Array

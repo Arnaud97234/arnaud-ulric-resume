@@ -14,7 +14,7 @@ import { formatDate, formatDuration } from './utils/utils'
 function Experience() {
   const experience = useSelector((state) => state.resume.value.experiences)
 
-  // ✅ Group experiences by company
+  // Group experiences by company
   const groupedExperiences = useMemo(() => {
     return Object.values(
       (experience || []).reduce((acc, exp) => {
@@ -114,6 +114,10 @@ function Experience() {
               {d}
             </pre>
           ))
+          console.log(e)
+          const formattedAchievements = e.achievements.map((a, key) => (
+            <pre key={key} style={{ whiteSpace: 'pre-wrap' }}>{a}</pre>
+          ))
 
           const techsList = e.techs.map((t, i) => {
             const iconSource = brands[t.icon] ? brands : regular
@@ -140,6 +144,10 @@ function Experience() {
               </span>
 
               <div className={styles.expDesc}>{formattedDesc}</div>
+              <div className={styles.expAchievements}>
+                <span>Achievements:</span>
+                {formattedAchievements}
+              </div> 
               <div className={styles.expTechs}>{techsList}</div>
             </div>
           )
