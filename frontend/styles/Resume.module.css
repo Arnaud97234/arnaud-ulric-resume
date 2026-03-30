@@ -73,17 +73,32 @@
 }
 
 .expDesc {
-    margin: 0 10px 0 6px;
-    padding: 0 10px 0 6px;
+    margin: 0 20px 0 6px;
+    padding: 0 20px 0 6px;
     font-size: 1.175rem;
-    font-family: 'Abel';
 }
 
 .expAchievements {
-    margin: 0 10px 0 6px;
-    padding: 0 10px 0 6px;
+    background-color:var(--color-1);
+    color: white;
+    border-radius: 12px;
+    padding: 10px 20px 0 10px;
+    max-width: 900px;
+    margin-bottom: 1.175rem;
+}
+
+.expAchievements ul span {
     font-size: 1.175rem;
-    font-family: 'Abel';
+    color: white;
+}
+
+.achievementsBoxTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.achievementsListItem {
+    margin-top: 4px;
 }
 
 .expTechs {

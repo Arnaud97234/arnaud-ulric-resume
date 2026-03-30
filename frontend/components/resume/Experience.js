@@ -7,7 +7,8 @@ import Tooltip from '@mui/material/Tooltip'
 import Divider from '@mui/material/Divider'
 import Zoom from '@mui/material/Zoom'
 import { useSelector } from 'react-redux'
-import { Link } from '@mui/material'
+import { Link, Box, List, ListItem, ListItemText, ListItemIcon } from '@mui/material'
+import WaterDropOutlinedIcon from '@mui/icons-material/WaterDropOutlined'
 import { useMemo } from 'react'
 import { formatDate, formatDuration } from './utils/utils'
 
@@ -114,9 +115,19 @@ function Experience() {
               {d}
             </pre>
           ))
-          console.log(e)
           const formattedAchievements = e.achievements.map((a, key) => (
-            <pre key={key} style={{ whiteSpace: 'pre-wrap' }}>{a}</pre>
+            // test
+            <ListItem sx={{ margin: 0, padding: 0 }}>
+                  <ListItemIcon sx={{color: 'white'}}>
+                    <WaterDropOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={a}
+                    className={styles.achievementsListItem}
+                  />
+                </ListItem>
+            // test end
+            // <pre key={key} style={{ whiteSpace: 'pre-wrap', margin: 4 }}>{a}</pre>
           ))
 
           const techsList = e.techs.map((t, i) => {
@@ -144,10 +155,17 @@ function Experience() {
               </span>
 
               <div className={styles.expDesc}>{formattedDesc}</div>
-              <div className={styles.expAchievements}>
-                <span>Achievements:</span>
-                {formattedAchievements}
-              </div> 
+
+              {
+                e.achievements.length > 0 &&
+                // display achievements if available
+                <Box className={styles.expAchievements} sx={{color: 'black'}}>
+                  <span className={styles.achievementsBoxTitle}>Achievements</span>
+                  <List className={styles.achievementsList} sx={{color: 'black'}}>
+                    {formattedAchievements}
+                  </List>
+                </Box>
+              }
               <div className={styles.expTechs}>{techsList}</div>
             </div>
           )
