@@ -149,10 +149,13 @@ function Experience() {
           return (
             <div key={e._id || e.title + e.startDate} style={{ marginTop: '15px' }}>
               <h3 className={styles.title}>{e.title}</h3>
-
+            { 
+              c.experiences.length > 1 &&
+              // display duration at experience level if many for a single company
               <span className={styles.duration}>
                 {`${formatDate(e.startDate)} - ${formatDate(e.endDate)} (${duration})`}
               </span>
+            }
 
               <div className={styles.expDesc}>{formattedDesc}</div>
 
