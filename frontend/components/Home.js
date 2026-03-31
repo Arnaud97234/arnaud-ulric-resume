@@ -90,8 +90,8 @@ function Home() {
 					</div>
 					<div className={styles.userPicture}>
 						<Image
-							width={320}
-							height={320}
+							width={323}
+							height={323}
 							src="/userPicture.jpg"
 							alt="profilePicture"
 							priority={true}
