@@ -117,7 +117,7 @@ function Experience() {
           ))
           const formattedAchievements = e.achievements.map((a, key) => (
             // test
-            <ListItem sx={{ margin: 0, padding: 0 }}>
+            <ListItem className={styles.experienceDesc} sx={{ margin: 0, padding: 0 }}>
                   <ListItemIcon sx={{color: 'white'}}>
                     <WaterDropOutlinedIcon />
                   </ListItemIcon>
