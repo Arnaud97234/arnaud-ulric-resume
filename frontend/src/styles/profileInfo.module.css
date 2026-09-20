@@ -63,12 +63,12 @@ hr.dashed {
 
 .item a:hover span,
 #email:hover {
-  color: whitesmoke;
+  color: var(--color-text-light);
 }
 
 .copied {
   animation: fadeIn 0.3s ease-in-out;
-  color: whitesmoke;
+  color: var(--color-text-light);
 }
 
 @keyframes fadeIn {

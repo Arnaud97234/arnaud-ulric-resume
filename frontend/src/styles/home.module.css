@@ -7,8 +7,8 @@
 
 /* Browser box */
 #browserBox {
-  background: #1e1e1e;
-  color: #b0b0b0;
+  background: var(--color-bg-vscode-dark);
+  color: var(--color-text-muted);
   display: flex;
   flex-direction: column;
   font-family: "Abel";
@@ -17,19 +17,19 @@
 }
 
 .boxItem a {
-  color: whitesmoke;
+  color: var(--color-text-light);
   text-decoration: none;
 }
 
 /* Toolbar (searchbar) */
 .browserToolbar {
   border-bottom: 1px solid;
-  background: #2d2d2d;
+  background: var(--color-bg-dark-grey);
   display: flex;
   align-items: center;
   padding: 10px 10px;
   height: 40px;
-  border: solid 1px #3c3c3c;
+  border: solid 1px var(--color-border-dark);
 }
 
 .browserToolbar > span > svg {
@@ -43,8 +43,8 @@
 .urlBar {
   padding: 4px 8px;
   border-radius: 6px;
-  background: #1e1e1e;
-  color: lightgray;
+  background: var(--color-bg-vscode-dark);
+  color: var(--color-text-gray);
   width: 100%;
   display: flex;
   align-items: center;
@@ -72,7 +72,7 @@
 .expertiseItem ul {
   margin-top: 12px;
   padding-left: 20px;
-  color: #b0b0b0;
+  color: var(--color-text-muted);
 }
 
 .expertiseItem li {
@@ -96,7 +96,7 @@
 }
 
 .divider::before {
-  border-color: rgb(176, 176, 176) !important;
+  border-color: var(--color-divider-home) !important;
 }
 
 .divider::after {

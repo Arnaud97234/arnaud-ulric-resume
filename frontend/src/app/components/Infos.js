@@ -85,7 +85,7 @@ export default function Intro() {
       return (
         <Tooltip describeChild title={s.name} key={key} disableInteractive>
           <span
-            style={{ color: "#34E2E2", paddingLeft: 20, paddingBottom: 6 }}
+            style={{ color: "#aef112", paddingLeft: 20, paddingBottom: 6 }}
             key={key}
           >
             <FontAwesomeIcon icon={icon} />
@@ -167,8 +167,7 @@ export default function Intro() {
         </div>
         <div>
           <ProfileId />
-          {/* <p style={{ color: "#34E2E2" }}>ls skills</p> */}
-          <p style={{ color: "#aef112" }}>ls skills</p>
+          <p style={{ color: "#34E2E2" }}>ls skills</p>
         </div>
         <div style={{ alignSelf: "center" }}>{skills}</div>
       </div>

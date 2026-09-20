@@ -4,7 +4,7 @@
   align-self: center;
   padding: 16px;
   padding-bottom: 8px;
-  background: #111;
+  background: var(--color-bg-black);
   width: 340px;
   position: sticky;
   bottom: 0;
@@ -24,13 +24,13 @@
 
 .footer a:hover span {
   visibility: visible;
-  color: rgb(0, 163, 255);
+  color: var(--color-terminal-blue-d);
 }
 
 .footer a span {
   visibility: hidden;
   bottom: 100%;
-  border: solid 1px rgb(0, 163, 255);
+  border: solid 1px var(--color-terminal-blue-d);
   border-radius: 8px;
   padding: 4px 8px;
   font-size: 14px;
@@ -60,7 +60,7 @@
   inset: 0;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--color-glass-bg);
   z-index: -1;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;

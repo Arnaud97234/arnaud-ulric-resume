@@ -7,7 +7,7 @@
 
 #vsCodeBox {
   display: flex;
-  background: #2d2d2d;
+  background: var(--color-bg-dark-grey);
   padding: 0;
   height: 100%;
   /* flex-direction: column; */
@@ -26,13 +26,13 @@
   padding: 10px 30px 0 10px;
   min-width: max-content;
   flex-direction: column;
-  border-right: solid 1px #3c3c3c;
+  border-right: solid 1px var(--color-border-dark);
   color: white;
   font-family:
     system-ui,
     -apple-system;
   display: flex;
-  background: #252526;
+  background: var(--color-bg-vscode-sidebar);
 }
 
 .leftBoxTitle {
@@ -65,22 +65,22 @@
 }
 
 .tab {
-  background-color: #1e1e1e;
+  background-color: var(--color-bg-vscode-dark);
   width: 100px;
   padding: 6px 8px 4px 8px;
   margin-bottom: 6px;
   margin-left: 10px;
   margin-top: 6px;
-  border-top: solid 1px #4e9ce4;
+  border-top: solid 1px var(--color-vscode-tab-top);
   color: white;
 }
 
 .code {
   display: flex;
   flex-direction: column;
-  background: #1e1e1e;
+  background: var(--color-bg-vscode-dark);
   color: white;
-  border-top: solid 1px #3c3c3c;
+  border-top: solid 1px var(--color-border-dark);
   padding: 20px;
   padding-left: 45px;
   counter-reset: line;
@@ -99,7 +99,7 @@
   left: 0;
   width: 30px;
   text-align: right;
-  color: #3c3c3c;
+  color: var(--color-border-dark);
   opacity: 0.6;
   transform: translateX(-48px);
 }
@@ -107,7 +107,7 @@
 .experience {
   margin: 10px 0;
   padding: 10px 0;
-  border-bottom: solid 1px #3c3c3c;
+  border-bottom: solid 1px var(--color-border-dark);
 }
 
 .achievementTitle {
