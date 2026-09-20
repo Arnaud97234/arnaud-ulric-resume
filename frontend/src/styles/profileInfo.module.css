@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "UbuntuMonospace";
+  src: url("/fonts/UbuntuMono-R.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#infoBox {
+  background: var(--color-terminal-bg);
+  display: flex;
+  flex-direction: column;
+  font-family: UbuntuMonospace;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 620px;
+}
+
+#infoBox > div {
+  display: flex;
+  margin: 12px 0;
+}
+
+.terminalUser,
+.terminalUser > span {
+  margin-bottom: 8px;
+  margin-right: 10px;
+  color: var(--color-terminal-blue-d);
+}
+
+.profileAscii {
+  border-radius: 50%;
+}
+
+hr.dashed {
+  border: 0.75px dashed var(--color-terminal-green);
+  margin: 15px 0;
+  width: 96px;
+}
+
+.infos {
+  margin-left: 10px;
+}
+
+.infos ul {
+  list-style: none;
+}
+
+.infos li {
+  margin: 4px 0;
+}
+
+.title {
+  color: var(--color-terminal-red);
+}
+
+.item {
+  color: var(--color-terminal-red);
+}
+
+.value {
+  color: var(--color-terminal-green);
+}
+
+.item a:hover span,
+#email:hover {
+  color: whitesmoke;
+}
+
+.copied {
+  animation: fadeIn 0.3s ease-in-out;
+  color: whitesmoke;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

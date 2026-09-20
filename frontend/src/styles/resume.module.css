@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Consolas";
+  src: url("/fonts/Consolas-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#vsCodeBox {
+  display: flex;
+  background: #2d2d2d;
+  padding: 0;
+  height: 100%;
+  /* flex-direction: column; */
+  overflow-y: auto;
+}
+
+.expTechs {
+  justify-self: center;
+  margin: 10px 0 10px 0;
+  justify-content: space-evenly;
+}
+
+.leftBox {
+  padding-right: 30px;
+  padding-top: 10px;
+  padding: 10px 30px 0 10px;
+  min-width: max-content;
+  flex-direction: column;
+  border-right: solid 1px #3c3c3c;
+  color: white;
+  font-family:
+    system-ui,
+    -apple-system;
+  display: flex;
+  background: #252526;
+}
+
+.leftBoxTitle {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.expertiseElem {
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.expertiseElem ul {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+.expertiseElem li {
+  margin-top: 10px;
+}
+.expertiseElem span {
+  font-weight: 800;
+}
+
+.rightBox {
+  display: flex;
+  flex-direction: column;
+  font-family: Consolas;
+}
+
+.tab {
+  background-color: #1e1e1e;
+  width: 100px;
+  padding: 6px 8px 4px 8px;
+  margin-bottom: 6px;
+  margin-left: 10px;
+  margin-top: 6px;
+  border-top: solid 1px #4e9ce4;
+  color: white;
+}
+
+.code {
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  color: white;
+  border-top: solid 1px #3c3c3c;
+  padding: 20px;
+  padding-left: 45px;
+  counter-reset: line;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.code p {
+  counter-increment: line;
+  position: relative;
+}
+
+.code p::before {
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 30px;
+  text-align: right;
+  color: #3c3c3c;
+  opacity: 0.6;
+  transform: translateX(-48px);
+}
+
+.experience {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: solid 1px #3c3c3c;
+}
+
+.achievementTitle {
+  padding: 8px 0;
+}
+
+.achDesc {
+  margin-top: 2px;
+}

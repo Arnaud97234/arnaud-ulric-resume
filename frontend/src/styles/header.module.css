@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "SpecialElite";
+  src: url("/fonts/SpecialElite-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PressStart2P";
+  src: url("/fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 40px;
+  padding: 10px;
+  font-family: SpecialElite;
+  position: sticky;
+  top: 0;
+}
+
+/* Blur layer */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.01);
+  z-index: -1;
+}
+
+.header * {
+  position: relative;
+  z-index: 1;
+}
+
+.clock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock span {
+  padding: 0 4px;
+}
+
+.profileName {
+  font-family: SpecialElite;
+  font-size: 20px;
+}
+
+.icons svg {
+  margin: 4px;
+}
