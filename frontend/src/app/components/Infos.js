@@ -107,7 +107,7 @@ export default function Intro() {
         </div>
         <div>
           <Image
-            className={styles.profileAscii}
+            className={styles.profilePicture}
             src="/profile.jpg"
             alt="Arnaud-ascii"
             width={120}
@@ -167,7 +167,8 @@ export default function Intro() {
         </div>
         <div>
           <ProfileId />
-          <p style={{ color: "#34E2E2" }}>ls skills</p>
+          {/* <p style={{ color: "#34E2E2" }}>ls skills</p> */}
+          <p style={{ color: "#aef112" }}>ls skills</p>
         </div>
         <div style={{ alignSelf: "center" }}>{skills}</div>
       </div>
