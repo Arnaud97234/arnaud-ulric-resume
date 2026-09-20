@@ -1,0 +1,52 @@
+{
+  "javascript": {
+    "reference": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "guide": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+  },
+  "typescript": {
+    "handbook": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "tsconfig_reference": "https://www.typescriptlang.org/tsconfig"
+  },
+  "nodejs": {
+    "docs": "https://nodejs.org/en/docs",
+    "api_reference": "https://nodejs.org/api/"
+  },
+  "npm": {
+    "docs": "https://docs.npmjs.com/",
+    "package_json": "https://docs.npmjs.com/cli/v10/configuring-npm/package-json"
+  },
+  "reactjs": {
+    "docs": "https://react.dev/",
+    "reference": "https://react.dev/reference/react",
+    "learn": "https://react.dev/learn"
+  },
+  "expressjs": {
+    "guide": "https://expressjs.com/en/guide/routing.html",
+    "api_reference": "https://expressjs.com/en/4x/api.html"
+  },
+  "mongodb": {
+    "docs": "https://www.mongodb.com/docs/manual/",
+    "query_operators": "https://www.mongodb.com/docs/manual/reference/operator/query/",
+    "aggregation": "https://www.mongodb.com/docs/manual/aggregation/"
+  },
+  "mongoose": {
+    "docs": "https://mongoosejs.com/docs/guide.html",
+    "api_reference": "https://mongoosejs.com/docs/api/mongoose.html"
+  },
+  "redux": {
+    "docs": "https://redux.js.org/",
+    "style_guide": "https://redux.js.org/style-guide/"
+  },
+  "redux_toolkit": {
+    "docs": "https://redux-toolkit.js.org/",
+    "rtk_query": "https://redux-toolkit.js.org/rtk-query/overview"
+  },
+  "web_standards": {
+    "http_status_codes": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+    "fetch_api": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+  },
+  "security": {
+    "owasp_top_10": "https://owasp.org/www-project-top-ten/",
+    "node_security_best_practices": "https://nodejs.org/en/learn/getting-started/security-best-practices"
+  }
+}
