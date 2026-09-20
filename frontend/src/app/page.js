@@ -260,7 +260,7 @@ export default function Page() {
                   </Link>{" "}
                   for running models locally and explore agentic AI development
                   and tasks automation, and to create intelligent agents that
-                  can interact and other systems.
+                  can interact with local filesystem and other systems.
                 </p>
               </li>
             </ul>
