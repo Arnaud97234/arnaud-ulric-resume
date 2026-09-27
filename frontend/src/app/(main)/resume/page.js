@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import Tooltip from "@mui/material/Tooltip";
 import { formatDate, getDuration } from "@/lib/formatDate";
 import DownloadResumeButton from "@/app/components/resume/DownloadPdfButton";
+import Diploma from "@/app/components/resume/Diploma";
 import Loading from "@/app/components/Loading";
 
 export default function Resume() {
@@ -155,6 +156,10 @@ export default function Resume() {
             experienceData={experienceData}
             profileData={profileData}
           />
+          <div className={styles.diplomasList}>
+            <span>🎓 diplomas</span>
+            <Diploma />
+          </div>
         </div>
         <div className={styles.rightBox}>
           <div className={styles.tab}>

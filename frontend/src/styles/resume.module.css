@@ -117,3 +117,21 @@
 .achDesc {
   margin-top: 2px;
 }
+
+.diplomaElem li {
+  font-style: italic;
+}
+
+.diplomasList {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.diplomasList > span {
+  font-weight: 800;
+}
+
+.diplomasList > div {
+  padding-left: 18px;
+  margin-top: 10px;
+}
