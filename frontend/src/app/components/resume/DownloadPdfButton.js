@@ -40,7 +40,7 @@ export default function DownloadResumeButton({ experienceData, profileData }) {
       onClick={handleDownload}
       disabled={loading}
       variant="contained"
-      style={{ alignSelf: "center", width: 100, marginTop: 30 }}
+      style={{ alignSelf: "center", width: 100, marginTop: 30, marginBottom: 30 }}
     >
       {loading ? (
         "Generating PDF..."
